@@ -112,7 +112,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Dual Action Buttons */}
-          <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
+          <div className="hidden 2xl:flex items-center gap-2 flex-shrink-0">
             <Link
               href="/nguoi-lao-dong"
               className="whitespace-nowrap inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs 2xl:text-sm font-bold text-orange-700 bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all active:scale-95 shadow-sm"
