@@ -1,0 +1,32 @@
+{
+  "name": "tri-thuc-viet-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website tuyển dụng và giới thiệu dịch vụ nhân lực Tri Thức Việt",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "eslint app components data lib tests e2e next.config.mjs playwright.config.ts tailwind.config.ts --ext .js,.mjs,.ts,.tsx --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "lucide-react": "^0.453.0",
+    "next": "^15.5.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/node": "^20.16.11",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "8.57.1",
+    "eslint-config-next": "15.5.24",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-04T00:00:00+07:00",
+  "title": "Design System: Tri Thức Việt",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "neutral", "displayName": "Deep Operational Navy", "canonical": "#020617", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#94a3b8", "#cbd5e1", "#f8fafc"] },
+      "navy-raised": { "role": "neutral", "displayName": "Raised Navy", "canonical": "#0f172a", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#94a3b8", "#cbd5e1", "#f8fafc"] },
+      "canvas": { "role": "neutral", "displayName": "Slate Canvas", "canonical": "#f8fafc", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#94a3b8", "#cbd5e1", "#f8fafc"] },
+      "surface": { "role": "neutral", "displayName": "White Work Surface", "canonical": "#ffffff", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#64748b", "#cbd5e1", "#f8fafc", "#ffffff"] },
+      "border": { "role": "neutral", "displayName": "Slate Divider", "canonical": "#e2e8f0", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#64748b", "#94a3b8", "#cbd5e1", "#f8fafc"] },
+      "muted": { "role": "neutral", "displayName": "Muted Slate Copy", "canonical": "#475569", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#94a3b8", "#cbd5e1", "#f8fafc"] },
+      "primary": { "role": "primary", "displayName": "Operational Blue", "canonical": "#1d4ed8", "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "primary-hover": { "role": "primary", "displayName": "Operational Blue Deep", "canonical": "#1e40af", "tonalRamp": ["#172554", "#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#60a5fa", "#93c5fd", "#dbeafe"] },
+      "primary-soft": { "role": "primary", "displayName": "Operational Blue Soft", "canonical": "#eff6ff", "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#93c5fd", "#dbeafe", "#eff6ff"] },
+      "primary-on-dark": { "role": "primary", "displayName": "Operational Blue Pale", "canonical": "#bfdbfe", "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe"] },
+      "worker": { "role": "secondary", "displayName": "Worker Orange", "canonical": "#ea580c", "tonalRamp": ["#431407", "#7c2d12", "#c2410c", "#ea580c", "#f97316", "#fb923c", "#fed7aa", "#fff7ed"] },
+      "worker-hover": { "role": "secondary", "displayName": "Worker Orange Bright", "canonical": "#f97316", "tonalRamp": ["#431407", "#7c2d12", "#c2410c", "#ea580c", "#f97316", "#fb923c", "#fed7aa", "#fff7ed"] },
+      "worker-soft": { "role": "secondary", "displayName": "Worker Orange Soft", "canonical": "#fff7ed", "tonalRamp": ["#431407", "#7c2d12", "#c2410c", "#ea580c", "#f97316", "#fb923c", "#fed7aa", "#fff7ed"] },
+      "success": { "role": "tertiary", "displayName": "Confirmation Emerald", "canonical": "#047857", "tonalRamp": ["#022c22", "#064e3b", "#047857", "#059669", "#34d399", "#6ee7b7", "#d1fae5", "#ecfdf5"] },
+      "success-soft": { "role": "tertiary", "displayName": "Confirmation Emerald Soft", "canonical": "#ecfdf5", "tonalRamp": ["#022c22", "#064e3b", "#047857", "#059669", "#34d399", "#6ee7b7", "#d1fae5", "#ecfdf5"] },
+      "danger": { "role": "tertiary", "displayName": "Alert Red", "canonical": "#991b1b", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#f87171", "#fecaca", "#fef2f2"] },
+      "danger-soft": { "role": "tertiary", "displayName": "Alert Red Soft", "canonical": "#fef2f2", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#f87171", "#fecaca", "#fef2f2"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Operational Display", "purpose": "Page and hero statements with dense, confident hierarchy." },
+      "headline": { "displayName": "Section Headline", "purpose": "Section and card headings." },
+      "title": { "displayName": "Component Title", "purpose": "Option labels, job names, and compact headings." },
+      "body": { "displayName": "Guidance Body", "purpose": "Vietnamese explanatory copy and status detail." },
+      "label": { "displayName": "Operational Label", "purpose": "Compact action labels and short metadata." }
+    },
+    "shadows": [
+      { "name": "surface-sm", "value": "0 1px 2px 0 rgb(15 23 42 / 0.05)", "purpose": "Subtle lift for white forms and result cards, normally paired with a slate ring." },
+      { "name": "navigation-md", "value": "0 4px 6px -1px rgb(15 23 42 / 0.10), 0 2px 4px -2px rgb(15 23 42 / 0.10)", "purpose": "Scrolled sticky navigation and small primary actions." },
+      { "name": "decision-panel", "value": "0 24px 60px -28px rgba(15, 23, 42, 0.65)", "purpose": "Observed lift for the hero navy choice panel." },
+      { "name": "mobile-drawer", "value": "0 20px 25px -5px rgb(15 23 42 / 0.10), 0 8px 10px -6px rgb(15 23 42 / 0.10)", "purpose": "Temporary elevation for the open mobile navigation drawer." }
+    ],
+    "motion": [
+      { "name": "header-state", "value": "300ms ease", "purpose": "Sticky navigation state changes." },
+      { "name": "fade-in", "value": "600ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Observed mobile-drawer entrance animation." },
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "Global reduced-motion override for animations and transitions." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Enterprise / Operational Primary Button",
+      "kind": "button",
+      "refersTo": "button-enterprise",
+      "description": "Primary enterprise action; blue remains the operational signal.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Gửi nhu cầu <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; background: #1d4ed8; color: #ffffff; padding: 12px 20px; font-family: var(--font-be-vietnam-pro), system-ui, sans-serif; font-size: 14px; font-weight: 700; line-height: 1.25; cursor: pointer; box-shadow: 0 1px 2px 0 rgb(15 23 42 / 0.05); transition: background 150ms ease, transform 150ms ease; } .ds-btn-primary:hover { background: #1e40af; } .ds-btn-primary:active { transform: scale(.95); } .ds-btn-primary:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Worker Primary Button",
+      "kind": "button",
+      "refersTo": "button-worker",
+      "description": "Worker-facing action with the site’s dedicated orange route signal.",
+      "html": "<button class=\"ds-btn-worker\" type=\"button\">Đăng ký tìm việc <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-btn-worker { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; background: #ea580c; color: #ffffff; padding: 12px 20px; font-family: var(--font-be-vietnam-pro), system-ui, sans-serif; font-size: 14px; font-weight: 700; line-height: 1.25; cursor: pointer; box-shadow: 0 1px 2px 0 rgb(15 23 42 / 0.05); transition: background 150ms ease, transform 150ms ease; } .ds-btn-worker:hover { background: #f97316; } .ds-btn-worker:active { transform: scale(.95); } .ds-btn-worker:focus-visible { outline: 2px solid #ea580c; outline-offset: 2px; }"
+    },
+    {
+      "name": "Sticky Navigation",
+      "kind": "nav",
+      "description": "Two-layer site orientation with a navy utility strip and translucent white main navigation.",
+      "html": "<div class=\"ds-nav-sample\"><div class=\"ds-utility\"><span class=\"ds-dot\"></span><span>Thông tin rõ ràng</span></div><nav class=\"ds-nav\"><strong>TRI THỨC VIỆT</strong><div class=\"ds-links\"><a href=\"#\" class=\"ds-active\">Trang Chủ</a><a href=\"#\">Doanh Nghiệp</a><a href=\"#\">Người Lao Động</a></div><button class=\"ds-worker-quiet\" type=\"button\">Tìm Việc</button><button class=\"ds-nav-primary\" type=\"button\">Doanh Nghiệp</button></nav></div>",
+      "css": ".ds-nav-sample { overflow: hidden; border: 1px solid #e2e8f0; border-radius: 16px; background: #f8fafc; font-family: var(--font-be-vietnam-pro), system-ui, sans-serif; } .ds-utility { display: flex; min-height: 32px; align-items: center; gap: 8px; background: #020617; color: #cbd5e1; padding: 0 14px; font-size: 11px; font-weight: 600; } .ds-utility a { margin-left: auto; color: #93c5fd; text-decoration: none; } .ds-dot { width: 8px; height: 8px; border-radius: 9999px; background: #34d399; } .ds-nav { display: flex; align-items: center; gap: 8px; background: rgb(255 255 255 / .95); padding: 12px 14px; box-shadow: 0 1px 2px 0 rgb(15 23 42 / .05); } .ds-nav strong { color: #0f172a; font-size: 13px; font-weight: 900; letter-spacing: -.025em; white-space: nowrap; } .ds-links { display: flex; gap: 2px; margin-left: auto; } .ds-links a { border-radius: 8px; color: #475569; padding: 6px 8px; font-size: 11px; font-weight: 600; text-decoration: none; } .ds-links a:hover, .ds-links .ds-active { background: #eff6ff; color: #1d4ed8; } .ds-worker-quiet, .ds-nav-primary { border-radius: 8px; padding: 7px 10px; font: 700 11px/1.25 var(--font-be-vietnam-pro), system-ui, sans-serif; cursor: pointer; } .ds-worker-quiet { border: 1px solid #fed7aa; background: #fff7ed; color: #c2410c; } .ds-nav-primary { border: 0; background: #1d4ed8; color: #ffffff; } .ds-worker-quiet:focus-visible, .ds-nav-primary:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; } @media (max-width: 620px) { .ds-links { display: none; } .ds-worker-quiet { margin-left: auto; } }"
+    },
+    {
+      "name": "Navy Choice Panel",
+      "kind": "custom",
+      "refersTo": "card-navy",
+      "description": "The recurring dark choice surface that houses parallel enterprise and worker paths.",
+      "html": "<section class=\"ds-choice\"><header><h3>Bạn cần tuyển người hay đang tìm việc?</h3><p>Chọn hướng phù hợp để bắt đầu.</p></header><div class=\"ds-choice-row\"><span class=\"ds-blue-icon\">▣</span><div><strong>Doanh nghiệp</strong><p>Trao đổi nhu cầu tuyển dụng.</p></div><button type=\"button\">Gửi nhu cầu</button></div><div class=\"ds-choice-row\"><span class=\"ds-orange-icon\">●</span><div><strong>Người lao động</strong><p>Xem thông tin và đăng ký.</p></div><button type=\"button\">Tìm việc</button></div></section>",
+      "css": ".ds-choice { overflow: hidden; border-radius: 16px; background: #020617; color: #ffffff; font-family: var(--font-be-vietnam-pro), system-ui, sans-serif; box-shadow: 0 24px 60px -28px rgba(15, 23, 42, .65); } .ds-choice header { border-bottom: 1px solid #1e293b; padding: 20px; } .ds-choice h3 { margin: 0; font-size: 16px; line-height: 1.35; } .ds-choice p { margin: 4px 0 0; color: #cbd5e1; font-size: 13px; line-height: 1.5; } .ds-choice-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; border-bottom: 1px solid #1e293b; padding: 16px 20px; } .ds-choice-row strong { font-size: 14px; } .ds-choice-row button { min-height: 36px; border: 0; border-radius: 10px; background: #1d4ed8; color: #ffffff; padding: 8px 10px; font: 700 12px/1.25 var(--font-be-vietnam-pro), system-ui, sans-serif; cursor: pointer; } .ds-choice-row:last-child button { background: #ea580c; } .ds-choice-row button:hover { filter: brightness(1.08); } .ds-choice-row button:focus-visible { outline: 2px solid #93c5fd; outline-offset: 2px; } .ds-blue-icon, .ds-orange-icon { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 10px; background: rgb(59 130 246 / .15); color: #93c5fd; } .ds-orange-icon { background: rgb(249 115 22 / .15); color: #fb923c; } @media (max-width: 420px) { .ds-choice-row { grid-template-columns: auto 1fr; } .ds-choice-row button { grid-column: 2; justify-self: start; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Clear Operational Bridge",
+    "overview": "The incumbent public experience pairs a bright slate information canvas with dark navy decision areas. It keeps workforce-related information direct and readable, using compact cards, durable labels, small Lucide icons, and clear state changes rather than ornamental treatments. Blue directs navigation, enterprise actions, focused fields, and information routing. Orange is a deliberate worker-facing counter-signal, used for job-seeking actions and their parallel navigation route.",
+    "keyCharacteristics": [
+      "Light slate canvas and white work surfaces, separated by subtle borders or rings.",
+      "Navy bands and panels for high-attention orientation, choices, and results.",
+      "Blue for primary action, focus, information routing, and procedural progress.",
+      "Orange reserved for worker-oriented calls to action and supporting details.",
+      "Compact rounded containers, bold Vietnamese hierarchy, and responsive task-first layouts."
+    ],
+    "rules": [
+      { "name": "The Signal-Lane Rule", "body": "Use blue for enterprise and operational movement; reserve orange for worker-facing movement.", "section": "colors" },
+      { "name": "The Contrast-First Rule", "body": "Navy sections use white or pale-blue text; light sections use deep navy and slate text. State meaning must remain understandable from its label, icon, and placement—not color alone.", "section": "colors" },
+      { "name": "The One-Family Rule", "body": "Keep Be Vietnam Pro across public and operational surfaces. Hierarchy comes from weight, size, spacing, and color—not a decorative display face.", "section": "typography" },
+      { "name": "The Border-Before-Shadow Rule", "body": "On light surfaces, begin with the established slate border or ring. Add shadow only when a container must separate from its context or layer above it.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the public canvas light slate and use white cards with the incumbent slate separation treatment.",
+      "Do use navy to group high-attention choices, orientation, and result summaries.",
+      "Do use blue for primary operational actions, focus states, navigation, and progress markers.",
+      "Do use orange specifically to differentiate worker-facing actions.",
+      "Do preserve clear labels, icon support, touch-friendly minimum control height, keyboard focus, and the reduced-motion fallback."
+    ],
+    "donts": [
+      "Don't use orange as a competing generic primary accent on enterprise or operational flows.",
+      "Don't rely on color by itself for form errors, public-status cues, route identity, or progress.",
+      "Don't replace the restrained slate borders and controlled shadows with heavy gradients, glass effects, or decorative visual noise."
+    ]
+  }
+}

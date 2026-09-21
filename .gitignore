@@ -1,0 +1,28 @@
+# Dependencies and package-manager cache
+node_modules/
+.pnpm-store/
+.venv/
+
+# Next.js build output and local tooling cache
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# Environment-specific configuration
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Legacy local data and generated material are not part of the static website.
+data/form-submissions.json
+data/admin-users.json
+data/admin-content.json
+future-operations-demo/
+output/
+
+# Test output
+test-results/
+playwright-report/
+
+.vercel

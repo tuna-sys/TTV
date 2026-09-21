@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-ui-fallback: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased overflow-x-hidden;
+    font-family: var(--font-ui-fallback);
+  }
+
+  ::selection {
+    @apply bg-blue-600 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-600 ring-offset-2 ring-offset-slate-50;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Phản hồi thao tác thống nhất cho chuột, bàn phím và màn hình cảm ứng. */
+:where(a[href], button:not(:disabled), summary, [role='button']) {
+  -webkit-tap-highlight-color: rgb(37 99 235 / 18%);
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(a[href], button:not(:disabled), summary, [role='button']) {
+    transition-duration: 140ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+:where(a[href], button:not(:disabled), summary, [role='button']):active {
+  filter: brightness(0.92) saturate(1.08);
+}
+
+:where(
+  button:not(:disabled),
+  [role='button'],
+  a.inline-flex,
+  a.flex
+):active {
+  outline: 2px solid rgb(59 130 246 / 32%);
+  outline-offset: 1px;
+  scale: 0.985;
+  translate: 0 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(
+    button:not(:disabled),
+    [role='button'],
+    a.inline-flex,
+    a.flex
+  ):active {
+    scale: 1;
+    translate: none;
+  }
+}
