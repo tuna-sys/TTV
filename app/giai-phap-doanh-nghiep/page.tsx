@@ -65,7 +65,7 @@ export default function EnterpriseSolutionsPage() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Quy Trình Cung Ứng Được Tổ Chức Rõ Ràng (6 Bước)
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm mt-2">
+            <p className="mt-2 text-sm text-slate-600 sm:text-base">
               Mỗi giai đoạn đều có tiêu chuẩn kiểm soát để đảm bảo tiến độ và chất lượng nhân sự
             </p>
           </div>
@@ -78,14 +78,14 @@ export default function EnterpriseSolutionsPage() {
                     <span className="px-3 py-1 rounded-lg bg-blue-50 text-blue-700 text-xs font-black">
                       {step.step}
                     </span>
-                    <span className="text-[10px] text-slate-400 font-semibold uppercase">
+                    <span className="text-xs font-semibold uppercase text-slate-400">
                       Quy Trình
                     </span>
                   </div>
                   <h3 className="text-base font-bold text-slate-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-sm leading-6 text-slate-600">
                     {step.desc}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function EnterpriseSolutionsPage() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               10 Yếu Tố Phối Hợp Cần Xác Định Từ Đầu
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm mt-2">
+            <p className="mt-2 text-sm text-slate-600 sm:text-base">
               Để đảm bảo nhân sự đáp ứng đúng nhu cầu vận hành, Tri Thức Việt làm rõ đầy đủ các tiêu chuẩn:
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function EnterpriseSolutionsPage() {
             {fdiCoordinationFactors.map((factor, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                <span className="text-xs font-medium text-slate-700">{factor}</span>
+                <span className="text-sm font-medium leading-6 text-slate-700">{factor}</span>
               </div>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function EnterpriseSolutionsPage() {
               <div key={idx} className="p-6 rounded-2xl bg-slate-800 border border-slate-700 flex flex-col justify-between">
                 <div>
                   <h3 className="text-base font-bold text-white mb-2">{val.title}</h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">{val.desc}</p>
+                  <p className="text-sm leading-6 text-slate-300">{val.desc}</p>
                 </div>
               </div>
             ))}
@@ -146,12 +146,12 @@ export default function EnterpriseSolutionsPage() {
             <h3 className="text-lg font-bold text-white mb-2">
               Đối tác nhân sự không chỉ cung cấp “số lượng”
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 italic mb-6 leading-relaxed">
+            <p className="mb-6 text-sm italic leading-6 text-slate-300 sm:text-base">
               &ldquo;Không chỉ đưa người lao động đến doanh nghiệp, mà tạo ra sự phù hợp giữa nhu cầu sản xuất, yêu cầu công việc và kỳ vọng của người lao động.&rdquo;
             </p>
             <Link
               href="/lien-he"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:bg-blue-500"
             >
               <Send className="w-4 h-4" />
               <span>Gửi Yêu Cầu Trao Đổi Nhu Cầu</span>

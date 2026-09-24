@@ -72,15 +72,15 @@ export default function WorkerSupportPage() {
                   <div className="w-10 h-10 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold text-sm mb-4">
                     0{idx + 1}
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  <p className="text-sm leading-6 text-slate-600 mb-4">
                     {pillar.desc}
                   </p>
                 </div>
                 <div className="pt-3 border-t border-slate-100">
-                  <p className="text-[11px] text-orange-800 italic bg-orange-50 p-2.5 rounded-xl leading-relaxed">
+                  <p className="rounded-xl bg-orange-50 p-3 text-sm italic leading-6 text-orange-800">
                     &ldquo;{pillar.quote}&rdquo;
                   </p>
                 </div>
@@ -102,14 +102,14 @@ export default function WorkerSupportPage() {
               <h2 className="text-xl sm:text-2xl font-black text-white">
                 Chi Phí Và Điều Kiện Được Xác Nhận Trước Khi Ứng Tuyển
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed max-w-xl mx-auto">
+              <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-300 sm:text-base">
                 Nội dung nào miễn phí, khoản nào do đơn vị tuyển dụng chi trả và điều kiện hỗ trợ xe/chỗ ở sẽ được xác nhận theo từng vị trí. Người lao động nên yêu cầu tư vấn viên cung cấp thông tin cụ thể trước khi quyết định.
               </p>
             </div>
 
             <Link
               href="/lien-he"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-orange-600/30 active:scale-95 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-orange-600 text-sm font-bold text-white shadow-lg shadow-orange-600/30 transition-all hover:bg-orange-500 active:scale-95"
             >
               <Send className="w-4 h-4" />
               <span>Liên hệ để nhận tư vấn việc làm</span>
