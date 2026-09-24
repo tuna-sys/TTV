@@ -54,6 +54,7 @@ const activityGallery = [
 ];
 
 const activityEvidence = [
+  { src: '/images/activities/gala-dinner-15-nam.jpg', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner kỷ niệm chặng đường phát triển', label: 'Dấu mốc đồng hành của tập thể Tri Thức Việt', width: 1437, height: 792 },
   { src: '/images/evidence/hoat-dong-tet-2025-cong-dong-sharp.png', alt: 'Đội ngũ Tri Thức Việt trong hoạt động cộng đồng dịp Tết 2025', label: 'Hoạt động cộng đồng · Tết 2025', width: 938, height: 874 },
   { src: '/images/evidence/hoat-dong-tet-2025-dieu-phoi-sharp.png', alt: 'Hoạt động điều phối và đưa đón người lao động dịp Tết 2025', label: 'Điều phối, đưa đón · Tết 2025', width: 932, height: 874 },
   { src: '/images/evidence/hoat-dong-tet-2025-doi-xe-sharp.png', alt: 'Đội xe đưa đón mang nhận diện Tri Thức Việt', label: 'Đội xe đưa đón', width: 654, height: 874 },
@@ -118,19 +119,27 @@ export default function AboutPage() {
         </section>
 
         <section className="border-b border-slate-200 bg-blue-950 text-white" aria-labelledby="operational-capacity-heading">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:px-8">
-            <div>
-              <h2 id="operational-capacity-heading" className="text-3xl font-black tracking-[-0.03em]">Hạ tầng hỗ trợ người lao động</h2>
-              <p className="mt-4 text-sm leading-7 text-blue-100">Hệ thống hỗ trợ đi lại và chỗ ở dành cho người lao động trong các chương trình phù hợp.</p>
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+              <div>
+                <h2 id="operational-capacity-heading" className="text-3xl font-black tracking-[-0.03em]">Hạ tầng hỗ trợ người lao động</h2>
+                <p className="mt-4 text-sm leading-7 text-blue-100">Hệ thống hỗ trợ đi lại và chỗ ở dành cho người lao động trong các chương trình phù hợp.</p>
+              </div>
+              <dl className="grid gap-px overflow-hidden rounded-2xl bg-blue-800 sm:grid-cols-3">
+                {publicOperationalCapacity.items.map((item) => (
+                  <div key={item.label} className="bg-blue-900 px-6 py-7">
+                    <dt className="text-sm leading-6 text-blue-100">{item.label}</dt>
+                    <dd className="mt-2 text-4xl font-black tabular-nums tracking-[-0.03em] text-white">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-            <dl className="grid gap-px overflow-hidden rounded-2xl bg-blue-800 sm:grid-cols-3">
-              {publicOperationalCapacity.items.map((item) => (
-                <div key={item.label} className="bg-blue-900 px-6 py-7">
-                  <dt className="text-sm leading-6 text-blue-100">{item.label}</dt>
-                  <dd className="mt-2 text-4xl font-black tabular-nums tracking-[-0.03em] text-white">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
+            <figure className="mt-10 overflow-hidden rounded-2xl bg-blue-900">
+              <div className="relative aspect-[16/7] min-h-56">
+                <Image src="/images/evidence/doi-xe-tri-thuc-viet.jpg" alt="Toàn cảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="object-cover object-center" />
+              </div>
+              <figcaption className="px-5 py-4 text-sm leading-6 text-blue-100 sm:px-6">Hình ảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt.</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -206,23 +215,25 @@ export default function AboutPage() {
 
             <figure className="mt-10 overflow-hidden rounded-2xl bg-slate-950 text-white shadow-xl shadow-slate-950/10">
               <Image
-                src="/images/activities/gala-dinner-15-nam.jpg"
-                alt="Tập thể Tri Thức Việt tại sự kiện Gala Dinner kỷ niệm chặng đường phát triển"
-                width={1437}
-                height={792}
+                src="/images/activities/tri-thuc-viet-17-nam.jpg"
+                alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở"
+                width={2000}
+                height={740}
                 sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
                 className="h-auto w-full"
               />
               <figcaption className="px-5 py-5 sm:px-7 sm:py-6">
-                <h3 className="text-lg font-extrabold tracking-[-0.02em] sm:text-xl">Dấu mốc đồng hành của tập thể Tri Thức Việt</h3>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">Hình ảnh tập thể tại chương trình Gala Dinner, ghi lại một dấu mốc trong hành trình xây dựng và phát triển doanh nghiệp.</p>
+                <h3 className="text-lg font-extrabold tracking-[-0.02em] sm:text-xl">17 năm xây dựng và phát triển</h3>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">Ấn phẩm kỷ niệm kết hợp hình ảnh đội ngũ, hạ tầng đưa đón và trụ sở Tri Thức Việt.</p>
               </figcaption>
             </figure>
 
-            <div className="mt-10 grid gap-4 min-[520px]:grid-cols-2 lg:grid-cols-[1.07fr_1.07fr_0.75fr]" aria-label="Tư liệu hoạt động điều phối và hỗ trợ người lao động năm 2025">
+            <div className="mt-10 grid gap-4 min-[520px]:grid-cols-2 lg:grid-cols-4" aria-label="Tư liệu hoạt động và hỗ trợ người lao động">
               {activityEvidence.map((item) => (
                 <figure key={item.src} className="w-full max-w-lg justify-self-center overflow-hidden rounded-2xl bg-slate-100">
-                  <Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes="(min-width: 1024px) 32vw, (min-width: 520px) 50vw, min(100vw, 512px)" className="h-auto w-full" />
+                  <div className="relative aspect-[4/3]">
+                    <Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 520px) 50vw, min(100vw, 512px)" className="object-cover object-top" />
+                  </div>
                   <figcaption className="px-4 py-3 text-sm font-bold text-slate-700 sm:px-5">{item.label}</figcaption>
                 </figure>
               ))}

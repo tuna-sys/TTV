@@ -71,8 +71,8 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-slate-100" aria-labelledby="anniversary-heading">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8">
           <div className="overflow-hidden rounded-2xl bg-slate-200 p-2" aria-label="Hình ảnh tập thể và hoạt động vận hành của Tri Thức Việt">
-            <figure className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-300">
-              <Image src="/images/activities/gala-dinner-15-nam.jpg" alt="Tập thể Tri Thức Việt tại sự kiện Gala Dinner kỷ niệm chặng đường phát triển" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
+            <figure className="relative aspect-[100/37] overflow-hidden rounded-xl bg-slate-300">
+              <Image src="/images/activities/tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center" />
             </figure>
             <div className="mt-2 grid grid-cols-3 gap-2">
               <figure className="relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-200">
@@ -82,13 +82,13 @@ export default function HomePage() {
                 <Image src="/images/evidence/hoat-dong-tet-2025-dieu-phoi-sharp.png" alt="Hoạt động điều phối và đưa đón người lao động dịp Tết 2025" fill sizes="(min-width: 1024px) 18vw, 33vw" className="object-cover" />
               </figure>
               <figure className="relative aspect-[4/3] overflow-hidden rounded-xl bg-slate-200">
-                <Image src="/images/evidence/hoat-dong-tet-2025-doi-xe-sharp.png" alt="Đội xe đưa đón mang nhận diện Tri Thức Việt" fill sizes="(min-width: 1024px) 18vw, 33vw" className="object-cover" />
+                <Image src="/images/evidence/doi-xe-tri-thuc-viet.jpg" alt="Toàn cảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1024px) 18vw, 33vw" className="object-cover object-center" />
               </figure>
             </div>
           </div>
           <div className="max-w-xl">
-            <h2 id="anniversary-heading" className="text-2xl font-black tracking-[-0.025em] text-slate-950 sm:text-3xl">Con người và hoạt động thực tế</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">Hình ảnh tập thể tại chương trình Gala Dinner cùng tư liệu về hoạt động điều phối và hỗ trợ di chuyển cho người lao động.</p>
+            <h2 id="anniversary-heading" className="text-2xl font-black tracking-[-0.025em] text-slate-950 sm:text-3xl">17 năm đồng hành cùng doanh nghiệp và người lao động</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">Hình ảnh đội ngũ, trụ sở và hoạt động hỗ trợ di chuyển thể hiện hành trình xây dựng năng lực phục vụ của Tri Thức Việt.</p>
             <Link href="/gioi-thieu#activity-heading" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:text-blue-800 hover:underline">
               Xem hoạt động thực tế
               <ArrowRight className="h-4 w-4" />
