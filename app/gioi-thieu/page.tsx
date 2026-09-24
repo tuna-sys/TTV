@@ -79,7 +79,7 @@ export default function AboutPage() {
           <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(37,99,235,0.28),transparent_55%)]" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-8">
             <div className="max-w-3xl">
-              <h1 className="text-4xl font-extrabold leading-[1.1] tracking-[-0.015em] sm:text-5xl lg:text-6xl">Uy tín cần được kiểm chứng bằng hồ sơ, con người và kết quả.</h1>
+              <h1 className="text-4xl font-extrabold leading-[1.25] tracking-normal sm:text-5xl lg:text-6xl">Uy tín cần được kiểm chứng bằng hồ sơ, con người và kết quả.</h1>
               <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Thông tin pháp nhân, năng lực vận hành, phạm vi phục vụ và các đối tác được trình bày rõ ràng để khách hàng và người lao động dễ dàng tìm hiểu.</p>
             </div>
             <aside className="rounded-2xl bg-white p-6 text-slate-900 shadow-[0_24px_65px_rgba(0,0,0,0.25)]">
