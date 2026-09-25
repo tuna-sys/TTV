@@ -30,8 +30,8 @@ const journeySteps: JourneyStep[] = [
     badge: '100% Miễn Phí',
     desc: 'Người lao động được chuyên viên tư vấn chi tiết về công việc tại các nhà máy FDI lớn (Foxconn, Canon, Luxshare, Goertek...). Mọi thông tin về mức lương cơ bản, phụ cấp, tăng ca, tiền ăn và ca kíp đều được thông báo rõ ràng trước khi đăng ký.',
     highlight: 'Không thu bất kỳ khoản phí môi giới nào từ người lao động',
-    image: '/images/all/images-activities-van-phong-tri-thuc-viet.webp',
-    imageAlt: 'Văn phòng tư vấn và tiếp nhận người lao động Tri Thức Việt',
+    image: '/images/all/phien-giao-dich-viec-lam-pa-vay-su-2026.jpg',
+    imageAlt: 'Phiên giao dịch việc làm nơi người lao động được tư vấn trực tiếp tại Pà Vầy Sủ',
     icon: PhoneCall,
   },
   {
@@ -60,8 +60,8 @@ const journeySteps: JourneyStep[] = [
     badge: '11 KTX – 5.000 Chỗ Ở',
     desc: 'Được bố trí chỗ ở tiện nghi tại hệ thống ký túc xá gần nhà máy (đầy đủ điện nước, an ninh, wifi). Đội ngũ quản lý đời sống luôn đồng hành, lắng nghe và hỗ trợ người lao động trong suốt quá trình làm việc.',
     highlight: 'Đồng hành hỗ trợ khi phát sinh khó khăn trong đời sống và công việc',
-    image: '/images/all/images-activities-doi-xe.webp',
-    imageAlt: 'Hạ tầng xe đưa đón và khu vực sinh hoạt phục vụ công nhân',
+    image: '/images/all/images-evidence-quy-mo-ky-tuc-xa-sharp.png',
+    imageAlt: 'Xe đưa đón trước khu ký túc xá phục vụ người lao động',
     icon: Home,
   },
 ];
@@ -87,7 +87,7 @@ export function WorkerJourney() {
               className={`p-5 rounded-2xl text-left transition-all duration-300 border flex flex-col justify-between ${
                 isActive
                   ? 'bg-orange-600 text-white border-orange-600 shadow-xl shadow-orange-600/25 scale-[1.02] ring-2 ring-orange-400/40'
-                  : 'bg-white text-slate-700 border-slate-200 hover:border-orange-300 hover:bg-orange-50/50'
+                  : 'bg-white text-orange-950 border-slate-200 hover:border-orange-300 hover:bg-orange-50/50'
               }`}
             >
               <div className="flex items-center justify-between w-full mb-3">

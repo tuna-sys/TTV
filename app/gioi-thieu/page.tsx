@@ -10,7 +10,8 @@ import {
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ActivityLightCarousel } from '@/components/ActivityLightCarousel';
-import { currentPartners, legalEntity, officialChannels, publicOperationalCapacity, publicRecruitmentEvidence, siteConfig } from '@/data/siteData';
+import { OperationalScaleAnimation } from '@/components/OperationalScaleAnimation';
+import { currentPartners, legalEntity, officialChannels, publicRecruitmentEvidence, siteConfig } from '@/data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
 import { ScrambleText } from '@/components/ScrambleText';
 
@@ -109,19 +110,8 @@ export default function AboutPage() {
                 <dd className="mt-2 text-base font-bold leading-7 text-white">{publicRecruitmentEvidence.serviceCoverage}</dd>
               </div>
             </dl>
-            <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-              <figure className="overflow-hidden rounded-2xl bg-slate-900">
-                <div className="relative aspect-[4/3] bg-slate-900"><Image src="/images/all/images-activities-doi-xe.webp" alt="Đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div>
-                <figcaption className="px-5 py-4 text-sm leading-6 text-slate-300">Hình ảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động.</figcaption>
-              </figure>
-              <dl className="divide-y divide-white/10 border-y border-white/10">
-                {publicOperationalCapacity.items.map((item) => (
-                  <div key={item.label} className="flex items-baseline justify-between gap-6 py-4">
-                    <dt className="text-sm leading-6 text-slate-300">{item.label}</dt>
-                    <dd className="text-2xl font-black tabular-nums text-white">{item.value}</dd>
-                  </div>
-                ))}
-              </dl>
+            <div className="mt-10">
+              <OperationalScaleAnimation />
             </div>
           </div>
         </section>
@@ -155,8 +145,8 @@ export default function AboutPage() {
               <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-xl group">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src="/images/all/le-ky-ket-hblab.jpg"
-                    alt="Lễ ký kết hợp đồng chuyển đổi số giữa Tri Thức Việt và Công ty CP HBLAB"
+                    src="/images/all/le-ky-ket-chuyen-doi-so-hblab.jpg"
+                    alt="Đại diện Tri Thức Việt và Công ty Cổ phần HBLAB ký hợp đồng chuyển đổi số"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

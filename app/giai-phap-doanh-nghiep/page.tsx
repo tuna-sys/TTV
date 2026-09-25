@@ -265,23 +265,23 @@ export default function EnterpriseSolutionsPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl bg-slate-800/80 p-6 sm:p-8 border border-slate-700">
               <div className="lg:col-span-6 space-y-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-blue-400 block">
-                  Đội Ngũ Điều Phối Chuyên Nghiệp
+                  Kết Nối Tuyển Nguồn Thực Địa
                 </span>
                 <h3 className="text-2xl font-black text-white">
-                  Văn Phòng Điều Phối Nhân Lực Tri Thức Việt
+                  Mở Rộng Điểm Chạm Cùng Nhà Trường & Doanh Nghiệp
                 </h3>
                 <p className="text-sm leading-relaxed text-slate-300">
-                  Hệ thống văn phòng đặt tại trung tâm tỉnh Bắc Ninh, phối hợp liên tục giữa đội ngũ tuyển dụng thực địa và đầu mối nhân sự tại các nhà máy, hỗ trợ giải quyết phát sinh 24/7.
+                  Tư liệu lễ ký kết thỏa thuận hợp tác giữa các doanh nghiệp với nhà trường, bổ sung một điểm chạm trực tiếp trong hoạt động kết nối và tư vấn nguồn lao động.
                 </p>
                 <div className="flex items-center gap-4 pt-2 text-xs text-slate-400">
-                  <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-blue-400" /> Nam Sơn, Bắc Ninh</span>
-                  <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-blue-400" /> Hỗ trợ ca kíp 24/7</span>
+                  <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-blue-400" /> Điểm chạm thực địa</span>
+                  <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-blue-400" /> Phối hợp theo kế hoạch</span>
                 </div>
               </div>
               <div className="lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-slate-700">
                 <Image
-                  src="/images/all/images-activities-van-phong-tri-thuc-viet.webp"
-                  alt="Văn phòng điều phối nhân sự Tri Thức Việt"
+                  src="/images/all/images-activities-originals-le-ky-ket.png"
+                  alt="Đại diện Tri Thức Việt tại lễ ký kết thỏa thuận hợp tác giữa doanh nghiệp với nhà trường"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover"

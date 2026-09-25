@@ -25,16 +25,16 @@ export function OperationalEvidenceGallery() {
       desc: 'Hình ảnh gốc về một chương trình đưa đón người lao động của Tri Thức Việt.',
     },
     {
-      src: '/images/all/images-activities-doi-xe.webp',
-      alt: 'Đội xe đưa đón mang nhận diện Tri Thức Việt',
-      title: 'Hệ thống xe đưa đón',
+      src: '/images/all/bai-xe-tri-thuc-viet.jpg',
+      alt: 'Toàn cảnh bãi xe phục vụ công tác điều phối của Tri Thức Việt',
+      title: 'Bãi xe điều phối',
       desc: `${transportCapacity.value} ${transportCapacity.label}`,
     },
     {
-      src: '/images/all/images-activities-van-phong-tri-thuc-viet.webp',
-      alt: 'Đội ngũ tại trụ sở Tri Thức Việt',
-      title: 'Đội ngũ tại trụ sở',
-      desc: 'Tư liệu gốc ghi lại đội ngũ Tri Thức Việt tại văn phòng.',
+      src: '/images/all/le-ky-ket-chuyen-doi-so-hblab.jpg',
+      alt: 'Đại diện Tri Thức Việt và Công ty Cổ phần HBLAB ký hợp đồng chuyển đổi số',
+      title: 'Nâng cao năng lực quản trị',
+      desc: 'Tư liệu ký kết hợp đồng chuyển đổi số giữa Tri Thức Việt và Công ty Cổ phần HBLAB.',
     },
   ];
 

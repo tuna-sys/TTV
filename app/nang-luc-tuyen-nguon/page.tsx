@@ -163,27 +163,27 @@ export default function SourcingCapacityPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Card 1: Hà Giang */}
+              {/* Card 1: Tuyên Quang */}
               <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm hover:shadow-md transition-all group">
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <Image
-                    src="/images/all/images-activities-hoat-dong-ha-giang.webp"
-                    alt="Hoạt động tuyển dụng và tư vấn việc làm tại Hà Giang"
+                    src="/images/all/phien-giao-dich-viec-lam-pa-vay-su-2026.jpg"
+                    alt="Đại diện các đơn vị tại phiên giao dịch việc làm xã Pà Vầy Sủ, tỉnh Tuyên Quang năm 2026"
                     fill
                     sizes="(min-width: 1024px) 30vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur text-white text-xs font-bold flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Hà Giang & Vùng Cao</span>
+                    <span>Pà Vầy Sủ, Tuyên Quang</span>
                   </div>
                 </div>
                 <div className="p-6 space-y-2">
                   <h3 className="text-lg font-bold text-slate-900">
-                    Nguồn Lao Động Đông Bắc & Tây Bắc
+                    Kết Nối Việc Làm Tại Địa Phương
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Kết nối với thanh niên vùng cao mong muốn làm việc tại các nhà máy điện tử, hỗ trợ trọn gói từ xe đưa đón đến nơi ở ký túc xá an toàn.
+                    Hình ảnh tại phiên giao dịch việc làm xã Pà Vầy Sủ ngày 25/09/2026, nơi người lao động tiếp cận thông tin và các đơn vị tư vấn trực tiếp.
                   </p>
                 </div>
               </div>
@@ -217,8 +217,8 @@ export default function SourcingCapacityPage() {
               <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm hover:shadow-md transition-all group">
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <Image
-                    src="/images/all/images-activities-doi-xe.webp"
-                    alt="Hệ thống 30 xe đưa đón người lao động liên tỉnh"
+                    src="/images/all/bai-xe-tri-thuc-viet.jpg"
+                    alt="Toàn cảnh bãi xe phục vụ công tác điều phối của Tri Thức Việt"
                     fill
                     sizes="(min-width: 1024px) 30vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

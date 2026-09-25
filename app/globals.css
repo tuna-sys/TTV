@@ -173,6 +173,59 @@ html[data-document-hidden='true'] .ttv-marquee-track {
   }
 }
 
+@keyframes operational-flow-travel {
+  0% {
+    stroke-dashoffset: 720;
+    opacity: 0;
+  }
+  12%, 88% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes operational-scale-breathe {
+  0%, 100% {
+    transform: translateY(-50%) scale(0.9);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.08);
+    opacity: 0.55;
+  }
+}
+
+.operational-flow-path {
+  filter: drop-shadow(0 0 6px rgb(191 219 254 / 0.55));
+  stroke-dasharray: 150 570;
+  stroke-dashoffset: 720;
+  animation: operational-flow-travel 4.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.operational-scale-glow {
+  animation: operational-scale-breathe 5.6s ease-in-out infinite;
+}
+
+.operational-scale-glow-delayed {
+  animation-delay: -2.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .operational-flow-path,
+  .operational-scale-glow {
+    animation: none;
+  }
+
+  .operational-flow-path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    opacity: 0.75;
+  }
+}
+
 /* Custom modern scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
