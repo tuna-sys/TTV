@@ -2,11 +2,11 @@ import {
   ArrowRight,
   CalendarDays,
   FileCheck2,
-  MapPinned,
 } from 'lucide-react';
 import Link from 'next/link';
 import { publicRecruitmentCaseStudy } from '@/data/siteData';
 import { OperationalEvidenceGallery } from '@/components/OperationalEvidenceGallery';
+import { InteractiveOperatingAreas } from '@/components/InteractiveOperatingAreas';
 
 export const RecruitmentCaseStudy = () => (
   <section id="case-study-2025" aria-labelledby="case-study-heading" className="scroll-mt-24 overflow-hidden bg-slate-950 text-white">
@@ -34,20 +34,7 @@ export const RecruitmentCaseStudy = () => (
 
       <div className="py-10">
         <div className="max-w-5xl">
-          <div className="flex items-center gap-3">
-            <MapPinned className="h-6 w-6 text-blue-300" aria-hidden="true" />
-            <h3 className="text-xl font-black tracking-[-0.02em] text-white">Dấu vết vận hành theo địa bàn</h3>
-          </div>
-          <div className="mt-6 divide-y divide-white/10 border-y border-white/10">
-            {publicRecruitmentCaseStudy.operatingAreas.map((area, index) => (
-              <article key={area.province} className="grid gap-3 py-5 sm:grid-cols-[2.5rem_8rem_1fr] sm:items-start">
-                <span className="font-black tabular-nums text-blue-300">0{index + 1}</span>
-                <h4 className="font-black text-white">{area.province}</h4>
-                <p className="text-sm leading-6 text-slate-300">{area.sites.join(' · ')}</p>
-              </article>
-            ))}
-          </div>
-
+          <InteractiveOperatingAreas />
         </div>
       </div>
 

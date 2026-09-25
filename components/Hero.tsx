@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, FileCheck2 } from 'lucide-react';
-import { publicOperationalCapacity, publicRecruitmentEvidence } from '@/data/siteData';
+import { ArrowRight, Building2 } from 'lucide-react';
 import { ScrambleText } from '@/components/ScrambleText';
+import { HeroAnimatedStats } from './HeroAnimatedStats';
 
 export function Hero() {
   return (
@@ -34,7 +34,7 @@ export function Hero() {
 
         <figure className="ttv-photo-reveal overflow-hidden rounded-2xl bg-slate-950 text-white shadow-[0_18px_45px_-28px_rgba(15,23,42,0.7)]">
           <div className="relative aspect-[16/10]">
-            <Image src="/images/activities/tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm 17 năm Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" fill priority sizes="(min-width: 1024px) 43vw, 100vw" className="object-cover" />
+            <Image src="/images/all/images-activities-tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm 17 năm Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" fill priority sizes="(min-width: 1024px) 43vw, 100vw" className="object-cover" />
           </div>
           <figcaption className="grid gap-5 px-5 py-5 sm:grid-cols-[auto_1fr] sm:items-center sm:px-6">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-200"><Building2 className="h-5 w-5" /></span>
@@ -43,22 +43,7 @@ export function Hero() {
         </figure>
       </div>
 
-      <div className="border-t border-slate-200 bg-slate-50">
-        <dl className="mx-auto grid max-w-7xl divide-y divide-slate-200 px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-6 lg:px-8">
-          <div className="py-5 sm:pr-6">
-            <dt className="text-sm font-bold text-slate-950">17 năm đồng hành</dt>
-            <dd className="mt-1 text-sm leading-6 text-slate-600">Hành trình xây dựng năng lực phục vụ doanh nghiệp và người lao động.</dd>
-          </div>
-          <div className="py-5 sm:px-6">
-            <dt className="flex items-center gap-2 text-sm font-bold text-slate-950"><FileCheck2 className="h-4 w-4 text-blue-700" />{publicRecruitmentEvidence.annualRecruitment} lượt tuyển dụng</dt>
-            <dd className="mt-1 text-sm leading-6 text-slate-600">Số liệu tổng hợp năm 2025 theo hồ sơ năng lực doanh nghiệp.</dd>
-          </div>
-          <div className="py-5 sm:pl-6">
-            <dt className="text-sm font-bold text-slate-950">{publicOperationalCapacity.items[0].value} xe · {publicOperationalCapacity.items[1].value} khu ký túc xá</dt>
-            <dd className="mt-1 text-sm leading-6 text-slate-600">Hạ tầng hỗ trợ được công bố; điều kiện áp dụng theo từng chương trình.</dd>
-          </div>
-        </dl>
-      </div>
+      <HeroAnimatedStats />
     </section>
   );
 }

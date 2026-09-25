@@ -75,7 +75,7 @@ export const Navbar = () => {
           <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
             <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-xl overflow-hidden bg-white border border-slate-200/80 p-0.5 shadow-sm group-hover:scale-105 transition-transform flex items-center justify-center flex-shrink-0">
               <Image
-                src="/logo.jpg"
+                src="/images/all/logo.jpg"
                 alt="Logo Tri Thức Việt"
                 width={40}
                 height={40}

@@ -36,7 +36,7 @@ Giữ tên Tri Thức Việt, logo hiện có, tiếng Việt rõ ràng, trải 
 ## Evidence on Hand
 
 - Nội dung trang công khai: `data/siteData.ts`.
-- Logo: `public/logo.jpg`.
+- Logo: `public/images/all/logo.jpg`.
 - Chưa có dữ liệu tuyển dụng đã được xác thực để hiển thị hoặc dùng kiểm thử đầu-cuối.
 
 ## Product Principles

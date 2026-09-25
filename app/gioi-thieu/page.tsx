@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { ActivityCarousel } from '@/components/ActivityCarousel';
+import { ActivityLightCarousel } from '@/components/ActivityLightCarousel';
 import { currentPartners, legalEntity, officialChannels, publicOperationalCapacity, publicRecruitmentEvidence, siteConfig } from '@/data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
 import { ScrambleText } from '@/components/ScrambleText';
@@ -35,16 +35,16 @@ const legalFields = [
 ];
 
 const activityEvidence = [
-  { src: '/images/activities/originals/gala-dinner.png', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner', label: 'Gala Dinner Tri Thức Việt' },
-  { src: '/images/activities/originals/tet-van-duong.png', alt: 'Hoạt động trao quà tại Trường Mầm non Vân Dương', label: 'Hoạt động cộng đồng' },
-  { src: '/images/activities/originals/xuat-phat-xe-0-dong.png', alt: 'Chương trình Chuyến xe 0 đồng của Tri Thức Việt', label: 'Chuyến xe 0 đồng' },
-  { src: '/images/activities/originals/doi-xe.png', alt: 'Đội xe mang nhận diện Tri Thức Việt', label: 'Đội xe đưa đón' },
-  { src: '/images/activities/originals/hoat-dong-ha-giang.png', alt: 'Người lao động tập trung tại Trung tâm dịch vụ việc làm', label: 'Kết nối người lao động' },
-  { src: '/images/activities/originals/hoat-dong-gia-binh.png', alt: 'Hoạt động trao quà Tết tại đơn vị quân đội', label: 'Hoạt động cộng đồng dịp Tết' },
-  { src: '/images/activities/originals/xe-dua-don-tet.png', alt: 'Xe đưa người lao động về quê đón Tết', label: 'Đưa người lao động về quê đón Tết' },
-  { src: '/images/activities/originals/su-kien-ket-noi.png', alt: 'Đại diện Tri Thức Việt tại sự kiện kết nối nhà trường và doanh nghiệp', label: 'Sự kiện kết nối' },
-  { src: '/images/activities/originals/van-phong-tri-thuc-viet.png', alt: 'Đội ngũ Tri Thức Việt tại trụ sở', label: 'Đội ngũ tại trụ sở' },
-  { src: '/images/activities/originals/le-ky-ket.png', alt: 'Lễ ký kết thỏa thuận hợp tác giữa nhà trường và doanh nghiệp', label: 'Lễ ký kết hợp tác' },
+  { src: '/images/all/ngay-hoi-vui-tet-don-xuan.jpg', alt: 'Hoạt động trao quà tại Ngày hội Vui Tết đón Xuân ở Trường Tiểu học và Trung học cơ sở Vân Dương', label: 'Ngày hội Vui Tết đón Xuân' },
+  { src: '/images/all/images-activities-gala-dinner.webp', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner', label: 'Gala Dinner Tri Thức Việt' },
+  { src: '/images/all/images-activities-xuat-phat-xe-0-dong.webp', alt: 'Chương trình Chuyến xe 0 đồng của Tri Thức Việt', label: 'Chuyến xe 0 đồng' },
+  { src: '/images/all/images-activities-doi-xe.webp', alt: 'Đội xe mang nhận diện Tri Thức Việt', label: 'Đội xe đưa đón' },
+  { src: '/images/all/images-activities-hoat-dong-ha-giang.webp', alt: 'Người lao động tập trung tại Trung tâm dịch vụ việc làm', label: 'Kết nối người lao động' },
+  { src: '/images/all/images-activities-hoat-dong-gia-binh.webp', alt: 'Hoạt động trao quà Tết tại đơn vị quân đội', label: 'Hoạt động cộng đồng dịp Tết' },
+  { src: '/images/all/images-activities-xe-dua-don-tet.webp', alt: 'Xe đưa người lao động về quê đón Tết', label: 'Đưa người lao động về quê đón Tết' },
+  { src: '/images/all/images-activities-su-kien-ket-noi.webp', alt: 'Đại diện Tri Thức Việt tại sự kiện kết nối nhà trường và doanh nghiệp', label: 'Sự kiện kết nối' },
+  { src: '/images/all/images-activities-van-phong-tri-thuc-viet.webp', alt: 'Đội ngũ Tri Thức Việt tại trụ sở', label: 'Đội ngũ tại trụ sở' },
+  { src: '/images/all/le-ky-ket-hblab.jpg', alt: 'Lễ ký kết hợp tác chuyển đổi số giữa Tri Thức Việt và Công ty CP HBLAB', label: 'Lễ ký kết chuyển đổi số' },
 ];
 
 export default function AboutPage() {
@@ -61,6 +61,7 @@ export default function AboutPage() {
             <nav aria-label="Mục lục hồ sơ" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-blue-200">
               <a href="#phap-nhan" className="hover:text-white">Pháp nhân</a>
               <a href="#nang-luc" className="hover:text-white">Năng lực</a>
+              <a href="#chuyen-doi-so" className="hover:text-white">Chuyển đổi số</a>
               <a href="#doi-tac" className="hover:text-white">Đối tác</a>
               <a href="#hoat-dong" className="hover:text-white">Hoạt động</a>
             </nav>
@@ -110,7 +111,7 @@ export default function AboutPage() {
             </dl>
             <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <figure className="overflow-hidden rounded-2xl bg-slate-900">
-                <div className="relative aspect-[4/3] bg-slate-900"><Image src="/images/activities/originals/doi-xe.png" alt="Đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div>
+                <div className="relative aspect-[4/3] bg-slate-900"><Image src="/images/all/images-activities-doi-xe.webp" alt="Đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div>
                 <figcaption className="px-5 py-4 text-sm leading-6 text-slate-300">Hình ảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động.</figcaption>
               </figure>
               <dl className="divide-y divide-white/10 border-y border-white/10">
@@ -121,6 +122,50 @@ export default function AboutPage() {
                   </div>
                 ))}
               </dl>
+            </div>
+          </div>
+        </section>
+
+        {/* Năng Lực Quản Trị & Chuyển Đổi Số */}
+        <section id="chuyen-doi-so" className="scroll-mt-24 border-b border-slate-200 bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4 text-blue-600" />
+                  <span>Năng Lực Quản Trị & Chuyển Đổi Số</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-950">
+                  Số Hóa Quy Trình & Năng Lực Quản Trị Doanh Nghiệp
+                </h2>
+                <p className="text-base leading-relaxed text-slate-600">
+                  Tri Thức Việt ký kết hợp đồng chuyển đổi số cùng Công ty Cổ phần HBLAB nhằm hiện đại hóa hệ thống quản lý nhân sự, chuẩn hóa quy trình điều phối dữ liệu và nâng cao tính minh bạch trong vận hành.
+                </p>
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">Chuẩn Hóa Dữ Liệu</span>
+                    <span className="text-sm font-semibold text-slate-800">Số hóa hồ sơ nhân sự và quy trình điều phối ứng viên</span>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">Minh Bạch Vận Hành</span>
+                    <span className="text-sm font-semibold text-slate-800">Liên thông thông tin thông suốt giữa các bộ phận</span>
+                  </div>
+                </div>
+              </div>
+              <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-xl group">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src="/images/all/le-ky-ket-hblab.jpg"
+                    alt="Lễ ký kết hợp đồng chuyển đổi số giữa Tri Thức Việt và Công ty CP HBLAB"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="p-4 bg-slate-900 border-t border-slate-800 text-xs text-slate-300">
+                  Hình ảnh lễ ký kết hợp đồng chuyển đổi số và nâng cao năng lực vận hành giữa Tri Thức Việt và Công ty Cổ phần HBLAB.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -145,11 +190,11 @@ export default function AboutPage() {
               <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950">Tư liệu hoạt động</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">Các hình ảnh được doanh nghiệp cho phép sử dụng, ghi lại đội ngũ và hoạt động hỗ trợ người lao động.</p>
             </div>
-            <figure className="mt-8 overflow-hidden rounded-2xl bg-slate-950 text-white">
-              <Image src="/images/activities/tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" width={2000} height={740} sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="h-auto w-full" />
-              <figcaption className="px-5 py-4 text-sm leading-6 text-slate-300 sm:px-6">17 năm xây dựng và phát triển cùng hình ảnh đội ngũ, hạ tầng đưa đón và trụ sở Tri Thức Việt.</figcaption>
+            <figure className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+              <Image src="/images/all/images-activities-tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" width={2000} height={740} sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="h-auto w-full" />
+              <figcaption className="px-6 py-4 text-sm font-semibold text-slate-700 bg-white border-t border-slate-100">17 năm xây dựng và phát triển cùng hình ảnh đội ngũ, hạ tầng đưa đón và trụ sở Tri Thức Việt.</figcaption>
             </figure>
-            <ActivityCarousel items={activityEvidence} />
+            <ActivityLightCarousel items={activityEvidence} />
           </div>
         </section>
 

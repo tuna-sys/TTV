@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowUpRight, Building2, Home, MousePointerClick, Phone, UsersRound } from 'lucide-react';
+import { Building2, Home, Phone, UsersRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 type PageSection = {
@@ -67,9 +67,6 @@ export function GlobalExperience() {
   const pathname = usePathname();
   const normalizedPath = pathname === '/' ? pathname : pathname.replace(/\/+$/, '');
   const progressRef = useRef<HTMLDivElement>(null);
-  const pointerRef = useRef<HTMLDivElement>(null);
-  const pointerRingRef = useRef<HTMLSpanElement>(null);
-  const pointerLabelRef = useRef<HTMLSpanElement>(null);
   const [activeSection, setActiveSection] = useState('');
   const sections = pageSections[normalizedPath] ?? emptySections;
 
@@ -130,53 +127,7 @@ export function GlobalExperience() {
     };
   }, [pathname, sections]);
 
-  useEffect(() => {
-    const supportsPointer = window.matchMedia('(pointer: fine)').matches;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!supportsPointer || reduceMotion) return;
 
-    const pointer = pointerRef.current;
-    const ring = pointerRingRef.current;
-    const label = pointerLabelRef.current;
-    if (!pointer || !ring || !label) return;
-
-    let pointerFrameId = 0;
-    let pointerX = 0;
-    let pointerY = 0;
-
-    const renderPointer = () => {
-      pointer.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0)`;
-      pointerFrameId = 0;
-    };
-
-    const handlePointerMove = (event: PointerEvent) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      pointer.dataset.visible = 'true';
-
-      const target = event.target instanceof Element
-        ? event.target.closest<HTMLElement>('a, button')
-        : null;
-      const active = Boolean(target);
-
-      ring.dataset.active = String(active);
-      label.dataset.active = String(active);
-      label.dataset.kind = target?.tagName === 'BUTTON' ? 'button' : target ? 'link' : 'none';
-      if (!pointerFrameId) pointerFrameId = requestAnimationFrame(renderPointer);
-    };
-
-    const hidePointer = () => {
-      pointer.dataset.visible = 'false';
-    };
-
-    window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    document.documentElement.addEventListener('mouseleave', hidePointer);
-    return () => {
-      window.removeEventListener('pointermove', handlePointerMove);
-      document.documentElement.removeEventListener('mouseleave', hidePointer);
-      if (pointerFrameId) cancelAnimationFrame(pointerFrameId);
-    };
-  }, []);
 
   return (
     <>
@@ -231,14 +182,6 @@ export function GlobalExperience() {
           })}
         </div>
       </nav>
-
-      <div ref={pointerRef} className="ttv-pointer" data-visible="false" aria-hidden="true">
-        <span ref={pointerRingRef} className="ttv-pointer-ring" data-active="false" />
-        <span ref={pointerLabelRef} className="ttv-pointer-label" data-active="false" data-kind="none">
-          <ArrowUpRight className="ttv-pointer-icon ttv-pointer-icon-link" />
-          <MousePointerClick className="ttv-pointer-icon ttv-pointer-icon-button" />
-        </span>
-      </div>
     </>
   );
 }

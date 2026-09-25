@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-slate-800 p-0.5 shadow-md flex items-center justify-center flex-shrink-0">
                 <Image
-                  src="/logo.jpg"
+                  src="/images/all/logo.jpg"
                   alt="Logo Tri Thức Việt"
                   width={40}
                   height={40}

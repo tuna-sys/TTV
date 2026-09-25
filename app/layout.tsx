@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   alternates: { canonical: '/' },
   icons: {
-    icon: '/logo.jpg',
-    apple: '/logo.jpg',
+    icon: '/images/all/logo.jpg',
+    apple: '/images/all/logo.jpg',
   },
   openGraph: {
     title: 'Tri Thức Việt | Kết nối đúng người – Đồng hành đúng nhu cầu',
