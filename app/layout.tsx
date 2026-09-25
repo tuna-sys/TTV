@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { getSiteUrl } from '@/lib/site-url';
 import { OrganizationJsonLd } from '@/components/OrganizationJsonLd';
+import { GlobalExperience } from '@/components/GlobalExperience';
 
 export const metadata: Metadata = {
   title: 'Tri Thức Việt | Cung Ứng Nhân Lực & Giải Pháp Tuyển Nhân Viên Toàn Diện',
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50 text-slate-800 antialiased flex flex-col selection:bg-blue-600 selection:text-white">
         <OrganizationJsonLd />
         {children}
+        <GlobalExperience />
       </body>
     </html>
   );

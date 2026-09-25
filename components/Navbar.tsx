@@ -12,6 +12,8 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { siteConfig } from '../data/siteData';
+import { BrandMarquee } from './BrandMarquee';
+import { ScrambleBrand } from './ScrambleBrand';
 
 const navLinks = [
   { label: 'Trang Chủ', href: '/' },
@@ -83,7 +85,7 @@ export const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-base xl:text-lg font-black tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors whitespace-nowrap leading-none mb-1">
-                TRI THỨC VIỆT
+                <ScrambleBrand />
               </span>
               <span className="text-[8.5px] font-bold tracking-wider text-slate-500 uppercase whitespace-nowrap leading-none xl:hidden 2xl:block 2xl:text-[9.5px]">
                 Cung Ứng Nhân Lực & Tuyển Nhân Viên
@@ -112,7 +114,7 @@ export const Navbar = () => {
           </nav>
 
           {/* Dual Action Buttons */}
-          <div className="hidden min-[1700px]:flex items-center gap-2 flex-shrink-0">
+          <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
             <Link
               href="/nguoi-lao-dong"
               className="whitespace-nowrap inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs 2xl:text-sm font-bold text-orange-700 bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all active:scale-95 shadow-sm"
@@ -187,6 +189,7 @@ export const Navbar = () => {
           </div>
         )}
       </header>
+      <BrandMarquee />
     </div>
   );
 };

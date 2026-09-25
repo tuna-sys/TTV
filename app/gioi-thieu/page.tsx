@@ -1,284 +1,168 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
-  ArrowRight,
-  BadgeCheck,
-  Building2,
-  CalendarDays,
-  CheckCircle2,
   ExternalLink,
   Mail,
   MapPin,
   Phone,
-  Scale,
   ShieldCheck,
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { CompanyDevelopmentCaseStudy } from '@/components/CompanyDevelopmentCaseStudy';
+import { ActivityCarousel } from '@/components/ActivityCarousel';
 import { currentPartners, legalEntity, officialChannels, publicOperationalCapacity, publicRecruitmentEvidence, siteConfig } from '@/data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu & hồ sơ năng lực | Tri Thức Việt',
-  description: 'Thông tin doanh nghiệp, phạm vi hoạt động, năng lực, hồ sơ pháp lý và các kênh có thể kiểm chứng của Tri Thức Việt.',
+  description: 'Hồ sơ pháp nhân, năng lực vận hành, đối tác và tư liệu hoạt động của Tri Thức Việt.',
   alternates: { canonical: '/gioi-thieu' },
   openGraph: {
     title: 'Giới thiệu & hồ sơ năng lực | Tri Thức Việt',
-    description: 'Tách rõ thông tin đã xác minh, bằng chứng đang bổ sung và đầu mối liên hệ chính thức.',
+    description: 'Thông tin pháp nhân, năng lực vận hành và đầu mối liên hệ có thể đối chiếu.',
     url: absoluteUrl('/gioi-thieu'),
   },
 };
 
 const legalFields = [
-  ['Tên pháp nhân đầy đủ', legalEntity.legalName],
+  ['Tên pháp nhân', legalEntity.legalName],
   ['Tên viết tắt', legalEntity.alternateName],
-  ['Mã số doanh nghiệp / mã số thuế', legalEntity.taxId],
+  ['Mã số thuế', legalEntity.taxId],
   ['Người đại diện theo pháp luật', legalEntity.legalRepresentative],
-  ['Ngày đăng ký / hoạt động công khai', legalEntity.registrationDate],
-  ['Tình trạng hoạt động', legalEntity.status],
+  ['Ngày đăng ký', legalEntity.registrationDate],
   ['Địa chỉ đăng ký', legalEntity.registeredAddress],
 ];
 
-const evidenceRequirements = [
-  { title: 'Năng lực tuyển dụng', detail: 'Tổng năm 2025 và bình quân tháng.' },
-  { title: 'Phạm vi phục vụ', detail: 'Nguồn ứng viên liên vùng tại Bắc Bộ và Bắc Trung Bộ.' },
-];
-
-const activityGallery = [
-  { src: '/images/activities/ha-giang-sharp.png', alt: 'Hoạt động của Tri Thức Việt tại Hà Giang', label: 'Hà Giang' },
-  { src: '/images/activities/gia-binh-sharp.png', alt: 'Hoạt động của Tri Thức Việt tại BCH Quân sự Gia Bình', label: 'BCH Quân sự Gia Bình' },
-  { src: '/images/activities/hoa-binh-sharp.png', alt: 'Hoạt động của Tri Thức Việt tại Hòa Bình', label: 'Hòa Bình' },
-  { src: '/images/activities/canon-viet-nam-sharp.png', alt: 'Hoạt động của Tri Thức Việt tại Canon Việt Nam', label: 'Canon Việt Nam' },
-];
-
 const activityEvidence = [
-  { src: '/images/activities/gala-dinner-15-nam.jpg', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner kỷ niệm chặng đường phát triển', label: 'Dấu mốc đồng hành của tập thể Tri Thức Việt', width: 1437, height: 792 },
-  { src: '/images/evidence/hoat-dong-tet-2025-cong-dong-sharp.png', alt: 'Đội ngũ Tri Thức Việt trong hoạt động cộng đồng dịp Tết 2025', label: 'Hoạt động cộng đồng · Tết 2025', width: 938, height: 874 },
-  { src: '/images/evidence/hoat-dong-tet-2025-dieu-phoi-sharp.png', alt: 'Hoạt động điều phối và đưa đón người lao động dịp Tết 2025', label: 'Điều phối, đưa đón · Tết 2025', width: 932, height: 874 },
-  { src: '/images/evidence/hoat-dong-tet-2025-doi-xe-sharp.png', alt: 'Đội xe đưa đón mang nhận diện Tri Thức Việt', label: 'Đội xe đưa đón', width: 654, height: 874 },
+  { src: '/images/activities/originals/gala-dinner.png', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner', label: 'Gala Dinner Tri Thức Việt' },
+  { src: '/images/activities/originals/tet-van-duong.png', alt: 'Hoạt động trao quà tại Trường Mầm non Vân Dương', label: 'Hoạt động cộng đồng' },
+  { src: '/images/activities/originals/xuat-phat-xe-0-dong.png', alt: 'Chương trình Chuyến xe 0 đồng của Tri Thức Việt', label: 'Chuyến xe 0 đồng' },
+  { src: '/images/activities/originals/doi-xe.png', alt: 'Đội xe mang nhận diện Tri Thức Việt', label: 'Đội xe đưa đón' },
+  { src: '/images/activities/originals/hoat-dong-ha-giang.png', alt: 'Người lao động tập trung tại Trung tâm dịch vụ việc làm', label: 'Kết nối người lao động' },
+  { src: '/images/activities/originals/hoat-dong-gia-binh.png', alt: 'Hoạt động trao quà Tết tại đơn vị quân đội', label: 'Hoạt động cộng đồng dịp Tết' },
+  { src: '/images/activities/originals/xe-dua-don-tet.png', alt: 'Xe đưa người lao động về quê đón Tết', label: 'Đưa người lao động về quê đón Tết' },
+  { src: '/images/activities/originals/su-kien-ket-noi.png', alt: 'Đại diện Tri Thức Việt tại sự kiện kết nối nhà trường và doanh nghiệp', label: 'Sự kiện kết nối' },
+  { src: '/images/activities/originals/van-phong-tri-thuc-viet.png', alt: 'Đội ngũ Tri Thức Việt tại trụ sở', label: 'Đội ngũ tại trụ sở' },
+  { src: '/images/activities/originals/le-ky-ket.png', alt: 'Lễ ký kết thỏa thuận hợp tác giữa nhà trường và doanh nghiệp', label: 'Lễ ký kết hợp tác' },
 ];
-
-function VerifiedBadge() {
-  return <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-900"><CheckCircle2 className="h-3.5 w-3.5" /> Đã đối chiếu</span>;
-}
-
-const publishedEvidence = [{
-  id: 'facebook-featured-post',
-  title: 'Bài đăng hoạt động trên Facebook',
-  url: officialChannels.featuredPost,
-  description: 'Kênh tham khảo hoạt động tuyển nhân viên chính thức.',
-}];
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-slate-950 text-white">
-          <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_70%_35%,rgba(37,99,235,0.28),transparent_55%)]" aria-hidden="true" />
-          <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-8">
+        <section id="tong-quan" className="scroll-mt-36 border-b border-slate-800 bg-slate-950 text-white">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1fr_auto] lg:items-end lg:px-8">
             <div className="max-w-3xl">
-              <h1 className="text-4xl font-extrabold leading-[1.25] tracking-normal sm:text-5xl lg:text-6xl">Uy tín cần được kiểm chứng bằng hồ sơ, con người và kết quả.</h1>
-              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">Thông tin pháp nhân, năng lực vận hành, phạm vi phục vụ và các đối tác được trình bày rõ ràng để khách hàng và người lao động dễ dàng tìm hiểu.</p>
+              <h1 className="text-balance text-4xl font-black leading-[1.08] tracking-[-0.035em] sm:text-5xl"><ScrambleText text="Hồ sơ năng lực Tri Thức Việt" /></h1>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">Tập hợp các thông tin pháp nhân, năng lực vận hành, đối tác và tư liệu thực tế để doanh nghiệp và người lao động thuận tiện đối chiếu.</p>
             </div>
-            <aside className="rounded-2xl bg-white p-6 text-slate-900 shadow-[0_24px_65px_rgba(0,0,0,0.25)]">
-              <div className="flex items-center gap-3"><ShieldCheck className="h-7 w-7 text-blue-700" /><h2 className="text-lg font-black">Nguyên tắc công bố</h2></div>
-              <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
-                {['Có nguồn hoặc người chịu trách nhiệm xác nhận', 'Ghi rõ phạm vi và thời điểm của số liệu', 'Chỉ sử dụng hình ảnh, tên đối tác khi được phép'].map((item) => (
-                  <li key={item} className="flex items-start gap-2"><CheckCircle2 className="mt-1 h-4 w-4 flex-none text-emerald-600" />{item}</li>
-                ))}
-              </ul>
-            </aside>
+            <nav aria-label="Mục lục hồ sơ" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-blue-200">
+              <a href="#phap-nhan" className="hover:text-white">Pháp nhân</a>
+              <a href="#nang-luc" className="hover:text-white">Năng lực</a>
+              <a href="#doi-tac" className="hover:text-white">Đối tác</a>
+              <a href="#hoat-dong" className="hover:text-white">Hoạt động</a>
+            </nav>
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white" aria-labelledby="legal-heading">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <Building2 className="h-8 w-8 text-blue-700" />
-                <h2 id="legal-heading" className="mt-5 text-3xl font-black tracking-[-0.03em]">Thông tin pháp nhân</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">Doanh nghiệp đã xác nhận đây là pháp nhân vận hành website. Thông tin được đối chiếu với nguồn tra cứu công khai ngày {legalEntity.verifiedAt}; hồ sơ đăng ký doanh nghiệp bản gốc vẫn là căn cứ ưu tiên nếu có khác biệt.</p>
-                <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-bold text-blue-700">
-                  <a href={legalEntity.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-blue-900">Nguồn mã số thuế <ExternalLink className="h-3.5 w-3.5" /></a>
-                  <a href={legalEntity.crossCheckUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-blue-900">Nguồn đối chiếu <ExternalLink className="h-3.5 w-3.5" /></a>
+        <section id="phap-nhan" className="scroll-mt-24 border-b border-slate-200 bg-white">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+            <div className="max-w-md">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950">Thông tin pháp nhân</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Doanh nghiệp xác nhận đây là pháp nhân vận hành website. Thông tin được đối chiếu với nguồn công khai ngày {legalEntity.verifiedAt}; hồ sơ đăng ký doanh nghiệp bản gốc là căn cứ ưu tiên nếu có khác biệt.</p>
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-blue-700">
+                <a href={legalEntity.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline decoration-blue-200 underline-offset-4 hover:text-blue-800">Nguồn mã số thuế <ExternalLink className="h-3.5 w-3.5" /></a>
+                <a href={legalEntity.crossCheckUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline decoration-blue-200 underline-offset-4 hover:text-blue-800">Nguồn đối chiếu <ExternalLink className="h-3.5 w-3.5" /></a>
+              </div>
+            </div>
+            <dl className="overflow-hidden rounded-2xl border border-slate-200">
+              {legalFields.map(([label, value]) => (
+                <div key={label} className="grid gap-2 border-b border-slate-200 px-5 py-4 last:border-b-0 sm:grid-cols-[11rem_1fr] sm:gap-5 sm:px-6">
+                  <dt className="text-sm font-bold text-slate-950">{label}</dt>
+                  <dd className="text-sm leading-6 text-slate-600">{value}</dd>
                 </div>
-              </div>
-              <dl className="overflow-hidden rounded-2xl bg-slate-50">
-                {legalFields.map(([label, value]) => (
-                  <div key={label} className="grid gap-3 border-b border-slate-200 px-5 py-5 last:border-b-0 sm:grid-cols-[0.8fr_1.2fr] sm:px-6">
-                    <dt className="font-bold text-slate-950">{label}</dt>
-                    <dd className="flex flex-wrap items-center gap-3 text-sm leading-6 text-slate-600"><span>{value}</span><VerifiedBadge /></dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-b border-slate-200 bg-blue-950 text-white" aria-labelledby="operational-capacity-heading">
-          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-              <div>
-                <h2 id="operational-capacity-heading" className="text-3xl font-black tracking-[-0.03em]">Hạ tầng hỗ trợ người lao động</h2>
-                <p className="mt-4 text-sm leading-7 text-blue-100">Hệ thống hỗ trợ đi lại và chỗ ở dành cho người lao động trong các chương trình phù hợp.</p>
-              </div>
-              <dl className="grid gap-px overflow-hidden rounded-2xl bg-blue-800 sm:grid-cols-3">
-                {publicOperationalCapacity.items.map((item) => (
-                  <div key={item.label} className="bg-blue-900 px-6 py-7">
-                    <dt className="text-sm leading-6 text-blue-100">{item.label}</dt>
-                    <dd className="mt-2 text-4xl font-black tabular-nums tracking-[-0.03em] text-white">{item.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-            <figure className="mt-10 overflow-hidden rounded-2xl bg-blue-900">
-              <div className="relative aspect-[16/7] min-h-56">
-                <Image src="/images/evidence/doi-xe-tri-thuc-viet.jpg" alt="Toàn cảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="object-cover object-center" />
-              </div>
-              <figcaption className="px-5 py-4 text-sm leading-6 text-blue-100 sm:px-6">Hình ảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt.</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section className="border-b border-slate-200 bg-white" aria-labelledby="service-coverage-heading">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-            <div className="max-w-3xl">
-              <BadgeCheck className="h-8 w-8 text-blue-700" />
-              <h2 id="service-coverage-heading" className="mt-5 text-3xl font-black tracking-[-0.03em]">Phạm vi phục vụ</h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">{publicRecruitmentEvidence.serviceCoverage}</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="history-heading">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <article>
-              <CalendarDays className="h-8 w-8 text-blue-700" />
-              <h2 id="history-heading" className="mt-5 text-3xl font-black tracking-[-0.03em]">Lịch sử và phạm vi hoạt động</h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">Nguồn tra cứu ghi nhận pháp nhân hoạt động từ ngày {legalEntity.registrationDate}. Danh mục ngành nghề công khai có hoạt động của trung tâm, đại lý tư vấn, giới thiệu và môi giới lao động, việc làm (7810) cùng cung ứng và quản lý nguồn lao động (7830).</p>
-              <div className="mt-7 flex"><VerifiedBadge /></div>
-            </article>
-            <article className="rounded-2xl bg-blue-950 p-7 text-white sm:p-9">
-              <Scale className="h-8 w-8 text-blue-300" />
-              <h2 className="mt-5 text-2xl font-black">Phạm vi dịch vụ phải có điều kiện áp dụng</h2>
-              <p className="mt-4 text-sm leading-7 text-blue-100">Xe đưa đón, chỗ ở, hỗ trợ hồ sơ và các chương trình miễn phí phụ thuộc từng vị trí, khu vực, thời điểm và chính sách của đơn vị tuyển dụng. Nhân viên tư vấn có trách nhiệm xác nhận lại trước khi người lao động quyết định.</p>
-            </article>
-          </div>
-        </section>
-
-        <CompanyDevelopmentCaseStudy />
-
-        <section className="bg-slate-900 py-16 text-white sm:py-20" aria-labelledby="capacity-heading">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h2 id="capacity-heading" className="text-3xl font-black tracking-[-0.03em] sm:text-4xl">Năng lực thực tế phải đi cùng kỳ đo và nguồn dữ liệu.</h2>
-              <p className="mt-5 text-base leading-7 text-slate-300">Các hạng mục dưới đây thể hiện năng lực tuyển dụng và phạm vi phục vụ của Tri Thức Việt.</p>
-            </div>
-            <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-slate-700 sm:grid-cols-2">
-              {evidenceRequirements.map((item) => (
-                <article key={item.title} className="bg-slate-950 p-6 sm:p-7">
-                  <div className="flex items-start justify-between gap-4"><h3 className="text-lg font-black">{item.title}</h3><VerifiedBadge /></div>
-                  <p className="mt-4 text-sm leading-6 text-slate-300">{item.detail}</p>
-                </article>
               ))}
+            </dl>
+          </div>
+        </section>
+
+        <section id="nang-luc" className="scroll-mt-24 bg-slate-950 text-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+            <div className="max-w-3xl">
+              <h2 className="text-3xl font-black tracking-[-0.03em]">Năng lực vận hành được công bố</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-300">Số liệu tổng hợp theo {publicRecruitmentEvidence.sourceLabel}, cập nhật {publicRecruitmentEvidence.confirmedAt}. Khả năng bố trí thực tế phụ thuộc từng chương trình, khu vực và thời điểm.</p>
+            </div>
+            <dl className="mt-8 grid divide-y divide-white/10 border-y border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              <div className="py-6 sm:pr-6">
+                <dt className="text-sm leading-6 text-slate-300">Lượt tuyển dụng năm 2025</dt>
+                <dd className="mt-2 text-4xl font-black tabular-nums tracking-[-0.03em]">{publicRecruitmentEvidence.annualRecruitment}</dd>
+              </div>
+              <div className="py-6 sm:px-6">
+                <dt className="text-sm leading-6 text-slate-300">Bình quân mỗi tháng</dt>
+                <dd className="mt-2 text-4xl font-black tabular-nums tracking-[-0.03em]">{publicRecruitmentEvidence.monthlyAverage}</dd>
+              </div>
+              <div className="py-6 sm:pl-6">
+                <dt className="text-sm leading-6 text-slate-300">Phạm vi phục vụ</dt>
+                <dd className="mt-2 text-base font-bold leading-7 text-white">{publicRecruitmentEvidence.serviceCoverage}</dd>
+              </div>
+            </dl>
+            <div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+              <figure className="overflow-hidden rounded-2xl bg-slate-900">
+                <div className="relative aspect-[4/3] bg-slate-900"><Image src="/images/activities/originals/doi-xe.png" alt="Đội xe trong hệ thống hỗ trợ đưa đón người lao động của Tri Thức Việt" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div>
+                <figcaption className="px-5 py-4 text-sm leading-6 text-slate-300">Hình ảnh đội xe trong hệ thống hỗ trợ đưa đón người lao động.</figcaption>
+              </figure>
+              <dl className="divide-y divide-white/10 border-y border-white/10">
+                {publicOperationalCapacity.items.map((item) => (
+                  <div key={item.label} className="flex items-baseline justify-between gap-6 py-4">
+                    <dt className="text-sm leading-6 text-slate-300">{item.label}</dt>
+                    <dd className="text-2xl font-black tabular-nums text-white">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-white" aria-labelledby="partners-detail-heading">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:px-8">
-            <div>
-              <BadgeCheck className="h-8 w-8 text-blue-700" />
-              <h2 id="partners-detail-heading" className="mt-5 text-3xl font-black tracking-[-0.03em]">Đối tác hiện tại</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">Tri Thức Việt xác nhận đang phối hợp với các doanh nghiệp dưới đây vào ngày {currentPartners.confirmedAt}. Website công bố logo theo thông tin doanh nghiệp cung cấp.</p>
+        <section id="doi-tac" className="scroll-mt-24 border-b border-slate-200 bg-white">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.65fr_1.35fr] lg:items-center lg:px-8">
+            <div className="max-w-md">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950">Đối tác hiện tại</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Tri Thức Việt xác nhận đang phối hợp với các doanh nghiệp dưới đây vào ngày {currentPartners.confirmedAt}. Logo được công bố theo thông tin doanh nghiệp cung cấp.</p>
             </div>
-            <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-slate-200 sm:grid-cols-4" aria-label="Đối tác hiện tại của Tri Thức Việt">
+            <ul className="grid grid-cols-2 overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-3 lg:grid-cols-4" aria-label="Đối tác hiện tại của Tri Thức Việt">
               {currentPartners.logos.map((partner) => (
-                <li key={partner.name} className="flex min-h-28 items-center justify-center bg-slate-50 p-4 sm:p-5">
-                  <Image src={partner.src} alt={`Logo ${partner.name}`} width={350} height={160} sizes="(min-width: 640px) 25vw, 50vw" className="h-auto max-h-20 w-full object-contain" />
-                </li>
+                <li key={partner.name} className="flex min-h-24 items-center justify-center border-b border-r border-slate-200 bg-slate-50 p-4 sm:min-h-28"><Image src={partner.src} alt={`Logo ${partner.name}`} width={350} height={160} sizes="(min-width: 1024px) 18vw, 50vw" className="h-auto max-h-16 w-full object-contain" /></li>
               ))}
             </ul>
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white" aria-labelledby="activity-heading">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section id="hoat-dong" className="scroll-mt-24 border-b border-slate-200 bg-slate-50">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
             <div className="max-w-3xl">
-              <BadgeCheck className="h-8 w-8 text-blue-700" />
-              <h2 id="activity-heading" className="mt-5 text-3xl font-black tracking-[-0.03em]">Hoạt động thực tế</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">Những hình ảnh được doanh nghiệp cho phép sử dụng, ghi lại đội ngũ Tri Thức Việt trong các hoạt động cộng đồng, tuyển dụng và sự kiện nội bộ.</p>
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950">Tư liệu hoạt động</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">Các hình ảnh được doanh nghiệp cho phép sử dụng, ghi lại đội ngũ và hoạt động hỗ trợ người lao động.</p>
             </div>
-
-            <figure className="mt-10 overflow-hidden rounded-2xl bg-slate-950 text-white shadow-xl shadow-slate-950/10">
-              <Image
-                src="/images/activities/tri-thuc-viet-17-nam.jpg"
-                alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở"
-                width={2000}
-                height={740}
-                sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
-                className="h-auto w-full"
-              />
-              <figcaption className="px-5 py-5 sm:px-7 sm:py-6">
-                <h3 className="text-lg font-extrabold tracking-[-0.02em] sm:text-xl">17 năm xây dựng và phát triển</h3>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">Ấn phẩm kỷ niệm kết hợp hình ảnh đội ngũ, hạ tầng đưa đón và trụ sở Tri Thức Việt.</p>
-              </figcaption>
+            <figure className="mt-8 overflow-hidden rounded-2xl bg-slate-950 text-white">
+              <Image src="/images/activities/tri-thuc-viet-17-nam.jpg" alt="Ấn phẩm kỷ niệm 17 năm phát triển của Tri Thức Việt với hình ảnh đội ngũ, đội xe và trụ sở" width={2000} height={740} sizes="(min-width: 1280px) 1216px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)" className="h-auto w-full" />
+              <figcaption className="px-5 py-4 text-sm leading-6 text-slate-300 sm:px-6">17 năm xây dựng và phát triển cùng hình ảnh đội ngũ, hạ tầng đưa đón và trụ sở Tri Thức Việt.</figcaption>
             </figure>
-
-            <div className="mt-10 grid gap-4 min-[520px]:grid-cols-2 lg:grid-cols-4" aria-label="Tư liệu hoạt động và hỗ trợ người lao động">
-              {activityEvidence.map((item) => (
-                <figure key={item.src} className="w-full max-w-lg justify-self-center overflow-hidden rounded-2xl bg-slate-100">
-                  <div className="relative aspect-[4/3]">
-                    <Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 520px) 50vw, min(100vw, 512px)" className="object-cover object-top" />
-                  </div>
-                  <figcaption className="px-4 py-3 text-sm font-bold text-slate-700 sm:px-5">{item.label}</figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {activityGallery.map((item) => (
-                <figure key={item.src} className="overflow-hidden rounded-2xl bg-slate-100">
-                  <div className="relative aspect-[4/3]">
-                    <Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" className="object-cover object-top" />
-                  </div>
-                  <figcaption className="px-4 py-3 text-sm font-bold text-slate-700">{item.label}</figcaption>
-                </figure>
-              ))}
-            </div>
-
-            {publishedEvidence.length ? (
-              <div className="mt-8 space-y-3 border-t border-slate-200 pt-8">
-                {publishedEvidence.map((item) => (
-                  <a key={item.id} href={item.url} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between gap-5 rounded-2xl bg-slate-50 px-5 py-5 transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
-                    <span className="min-w-0"><strong className="block break-words text-base text-slate-950">{item.title}</strong><span className="mt-1 block text-sm leading-6 text-slate-600">{item.description}</span></span>
-                    <ExternalLink className="h-5 w-5 flex-none text-blue-700 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
-                ))}
-              </div>
-            ) : null}
+            <ActivityCarousel items={activityEvidence} />
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8" aria-labelledby="contact-heading">
-          <div className="rounded-2xl bg-slate-950 p-7 text-white sm:p-10">
-            <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end">
-              <div>
-                <h2 id="contact-heading" className="text-3xl font-black tracking-[-0.03em]">Thông tin liên hệ có thể xác minh</h2>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">Email, số điện thoại, Facebook và Google Maps là các kênh hiện có. Vui lòng đối chiếu đầu mối chịu trách nhiệm trước khi ký kết hoặc chuyển hồ sơ.</p>
-              </div>
+        <section className="bg-white">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+            <div className="grid gap-8 rounded-2xl bg-slate-950 p-6 text-white sm:p-8 lg:grid-cols-[1fr_1.1fr] lg:items-end">
+              <div><ShieldCheck className="h-7 w-7 text-blue-300" /><h2 className="mt-4 text-3xl font-black tracking-[-0.03em]">Liên hệ qua kênh chính thức</h2><p className="mt-4 max-w-xl text-sm leading-7 text-slate-300">Vui lòng đối chiếu đầu mối phụ trách trước khi ký kết hoặc chuyển hồ sơ.</p></div>
               <div className="grid gap-3 sm:grid-cols-2">
                 <a href={`mailto:${siteConfig.email}`} className="flex min-w-0 items-center gap-3 rounded-xl bg-white/10 p-4 hover:bg-white/15"><Mail className="h-5 w-5 flex-none text-blue-300" /><span className="min-w-0 break-all text-sm font-bold">{siteConfig.email}</span></a>
                 <a href={officialChannels.phones[0].href} className="flex items-center gap-3 rounded-xl bg-white/10 p-4 hover:bg-white/15"><Phone className="h-5 w-5 flex-none text-blue-300" /><span className="text-sm font-bold">{officialChannels.phones[0].display}</span></a>
                 <a href={officialChannels.map} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl bg-white/10 p-4 hover:bg-white/15"><MapPin className="h-5 w-5 flex-none text-blue-300" /><span className="text-sm font-bold">Vị trí trên Google Maps</span></a>
                 <a href={officialChannels.facebookPage} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl bg-white/10 p-4 hover:bg-white/15"><ExternalLink className="h-5 w-5 flex-none text-blue-300" /><span className="text-sm font-bold">Trang Facebook</span></a>
               </div>
-            </div>
-            <div className="mt-8 border-t border-white/10 pt-7">
-              <Link href="/lien-he" className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300">Liên hệ và xác minh thông tin <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
         </section>

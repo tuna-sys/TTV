@@ -15,6 +15,7 @@ import {
   enterpriseValues
 } from '../../data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const metadata: Metadata = {
   title: 'Giải Pháp Cung Ứng Nhân Lực Doanh Nghiệp FDI | Tri Thức Việt',
@@ -29,7 +30,8 @@ export default function EnterpriseSolutionsPage() {
       <Navbar />
 
       {/* Page Header Banner */}
-      <section className="relative pt-12 pb-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white overflow-hidden">
+      <main>
+      <section id="giai-phap" className="scroll-mt-36 relative pt-12 pb-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider border border-blue-500/30">
@@ -37,7 +39,7 @@ export default function EnterpriseSolutionsPage() {
               <span>Dành Cho Khối Doanh Nghiệp & Nhà Máy FDI</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-              Nguồn Nhân Lực Phù Hợp Cho Môi Trường Sản Xuất Quy Mô Lớn
+              <ScrambleText text="Nguồn Nhân Lực Phù Hợp Cho Môi Trường Sản Xuất Quy Mô Lớn" />
             </h1>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Tri Thức Việt phát triển dịch vụ cung ứng nhân sự với định hướng trở thành bộ phận hỗ trợ mở rộng cho hệ thống tuyển dụng của doanh nghiệp, đặc biệt trong những giai đoạn cần bổ sung nhân lực nhanh hoặc tuyển dụng liên tục.
@@ -56,7 +58,7 @@ export default function EnterpriseSolutionsPage() {
       </section>
 
       {/* Quy Trình Cung Ứng 6 Bước */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section id="quy-trinh-6-buoc" className="scroll-mt-36 py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-blue-700 uppercase tracking-widest block mb-1">
@@ -96,7 +98,7 @@ export default function EnterpriseSolutionsPage() {
       </section>
 
       {/* 10 Yếu Tố Phối Hợp Xác Định Từ Đầu */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section id="yeu-to-phoi-hop" className="scroll-mt-36 py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-bold text-blue-700 uppercase tracking-widest block mb-1">
@@ -122,7 +124,7 @@ export default function EnterpriseSolutionsPage() {
       </section>
 
       {/* 5 Giá Trị Mang Lại Cho Doanh Nghiệp */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section id="gia-tri-doanh-nghiep" className="scroll-mt-36 py-16 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -160,6 +162,7 @@ export default function EnterpriseSolutionsPage() {
 
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

@@ -17,6 +17,7 @@ import {
   publicOperationalCapacity
 } from '../../data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const metadata: Metadata = {
   title: 'Năng Lực Tuyển Nhân Viên Đa Kênh | Tri Thức Việt',
@@ -31,7 +32,8 @@ export default function SourcingCapacityPage() {
       <Navbar />
 
       {/* Page Header Banner */}
-      <section className="relative pt-12 pb-16 bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+      <main>
+      <section id="nang-luc-sourcing" className="scroll-mt-36 relative pt-12 pb-16 bg-gradient-to-b from-emerald-950 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/30">
@@ -39,7 +41,7 @@ export default function SourcingCapacityPage() {
               <span>Năng Lực Sourcing Đa Điểm Chạm</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-              Chủ Động Nguồn Ứng Viên – Linh Hoạt Trước Mọi Nhu Cầu Tuyển Dụng
+              <ScrambleText text="Chủ Động Nguồn Ứng Viên – Linh Hoạt Trước Mọi Nhu Cầu Tuyển Dụng" />
             </h1>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Trong tuyển dụng số lượng lớn, thách thức không nằm ở việc đăng một tin tuyển dụng, mà nằm ở khả năng duy trì nguồn ứng viên liên tục, tiếp cận đúng nhóm lao động và chuyển đổi người quan tâm thành người sẵn sàng đi làm.
@@ -57,7 +59,7 @@ export default function SourcingCapacityPage() {
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white" aria-labelledby="support-capacity-heading">
+      <section id="nang-luc-ho-tro" className="scroll-mt-36 border-b border-slate-200 bg-white" aria-labelledby="support-capacity-heading">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
             <div>
@@ -77,7 +79,7 @@ export default function SourcingCapacityPage() {
       </section>
 
       {/* 8 Điểm Chạm Tiếp Cận Ứng Viên */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section id="diem-cham" className="scroll-mt-36 py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest block mb-1">
@@ -107,7 +109,7 @@ export default function SourcingCapacityPage() {
       </section>
 
       {/* Quy Trình Tuyển Nhân Viên Chủ Động 7 Bước */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section id="quy-trinh-sourcing" className="scroll-mt-36 py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest block mb-1">
@@ -138,7 +140,7 @@ export default function SourcingCapacityPage() {
       </section>
 
       {/* 7 Tiêu Chí Sàng Lọc Chất Lượng Đầu Vào */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section id="sang-loc" className="scroll-mt-36 py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest block mb-1">
@@ -164,7 +166,7 @@ export default function SourcingCapacityPage() {
       </section>
 
       {/* CTA Box */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section id="lien-he-sourcing" className="scroll-mt-36 py-16 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-800 border border-slate-700 max-w-2xl mx-auto space-y-6">
             <h2 className="text-xl sm:text-2xl font-black text-white">
@@ -183,6 +185,7 @@ export default function SourcingCapacityPage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

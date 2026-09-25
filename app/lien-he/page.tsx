@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer';
 import { OfficialChannels } from '../../components/OfficialChannels';
 import { officialChannels, siteConfig } from '@/data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const metadata: Metadata = {
   title: 'Liên hệ Tri Thức Việt',
@@ -20,7 +21,7 @@ export default function ContactPage() {
 
       <main className="flex-1 py-12 md:py-16">
         <header className="mx-auto max-w-7xl px-4 pb-2 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-black tracking-[-0.03em] text-white sm:text-5xl">Liên hệ Tri Thức Việt</h1>
+          <h1 className="text-4xl font-black tracking-[-0.03em] text-white sm:text-5xl"><ScrambleText text="Liên hệ Tri Thức Việt" /></h1>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-300">Website không lưu hồ sơ trực tuyến. Vui lòng dùng các kênh chính thức dưới đây để được hướng dẫn.</p>
         </header>
 

@@ -12,6 +12,7 @@ import { Footer } from '../../components/Footer';
 import { 
   workerSupportPillars
 } from '../../data/siteData';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const metadata: Metadata = {
   title: 'Dành Cho Người Lao Động | Việc Làm Rõ Ràng & An Tâm | Tri Thức Việt',
@@ -25,7 +26,8 @@ export default function WorkerSupportPage() {
       <Navbar />
 
       {/* Page Header Banner */}
-      <section className="relative pt-12 pb-16 bg-gradient-to-b from-orange-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+      <main>
+      <section id="hanh-trinh" className="scroll-mt-36 relative pt-12 pb-16 bg-gradient-to-b from-orange-950 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-300 text-xs font-bold uppercase tracking-wider border border-orange-500/30">
@@ -33,7 +35,7 @@ export default function WorkerSupportPage() {
               <span>Dành Cho Người Lao Động</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-              Một Công Việc Phù Hợp Cần Đi Cùng Một Hành Trình Làm Việc An Tâm
+              <ScrambleText text="Một Công Việc Phù Hợp Cần Đi Cùng Một Hành Trình Làm Việc An Tâm" />
             </h1>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Tìm việc → Chuẩn bị → Nhận việc → Đi làm → Ổn định cuộc sống. Tri Thức Việt không chỉ hỗ trợ bạn tìm việc, mà đồng hành để hành trình bắt đầu của bạn trở nên thuận tiện và rõ ràng nhất.
@@ -54,7 +56,7 @@ export default function WorkerSupportPage() {
       </section>
 
       {/* 5 Trụ Cột Hỗ Trợ Đời Sống */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section id="tru-cot-ho-tro" className="scroll-mt-36 py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-xs font-bold text-orange-700 uppercase tracking-widest block mb-1">
@@ -91,7 +93,7 @@ export default function WorkerSupportPage() {
       </section>
 
       {/* Điều kiện hỗ trợ & CTA */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section id="dieu-kien-ho-tro" className="scroll-mt-36 py-16 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-orange-900/40 via-slate-800 to-slate-900 border border-orange-500/30 text-center max-w-3xl mx-auto space-y-6">
             <div className="w-14 h-14 rounded-full bg-orange-500/20 border border-orange-500/40 text-orange-400 mx-auto flex items-center justify-center">
@@ -117,6 +119,7 @@ export default function WorkerSupportPage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

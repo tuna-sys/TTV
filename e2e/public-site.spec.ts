@@ -4,7 +4,7 @@ test('điều hướng công khai và chính sách dữ liệu hoạt động', 
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await page.goto('/gioi-thieu');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('hồ sơ');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(/hồ sơ/i);
   await page.goto('/chinh-sach-bao-ve-du-lieu-ca-nhan');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('dữ liệu cá nhân');
 });
@@ -19,7 +19,8 @@ test('trang liên hệ chỉ cung cấp các kênh chính thức', async ({ page
 
 test('không bịa tin tuyển dụng khi danh sách đang trống', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Tin tuyển dụng được cập nhật trên kênh chính thức' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Dành cho người lao động', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: /ứng tuyển|nộp hồ sơ/i })).toHaveCount(0);
 });
 
 test('trang chính và liên hệ không phát sinh lỗi console', async ({ page }) => {
@@ -90,7 +91,7 @@ test('menu desktop đủ lớn và không gây tràn ngang', async ({ page }) =>
 test('các thao tác chính có phản hồi chạm thống nhất', async ({ page }) => {
   await page.goto('/');
 
-  const heroAction = page.getByRole('link', { name: 'Liên hệ doanh nghiệp' });
+  const heroAction = page.getByRole('link', { name: 'Trao đổi nhu cầu tuyển dụng', exact: true });
   await expect(heroAction).toHaveCSS('touch-action', 'manipulation');
 
   const feedback = await heroAction.evaluate((element) => {

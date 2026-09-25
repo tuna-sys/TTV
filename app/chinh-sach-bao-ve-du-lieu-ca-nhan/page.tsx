@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { legalEntity, siteConfig } from '@/data/siteData';
 import { PRIVACY_POLICY_EFFECTIVE_DATE, PRIVACY_POLICY_VERSION } from '@/lib/privacy-policy';
 import { absoluteUrl } from '@/lib/site-url';
+import { ScrambleText } from '@/components/ScrambleText';
 
 const isApproved = process.env.PRIVACY_POLICY_STATUS === 'approved';
 
@@ -39,13 +40,13 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 text-white">
+        <section id="chinh-sach" className="scroll-mt-36 bg-slate-950 text-white">
           <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
             <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-200 underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-300">
               <ArrowLeft className="h-4 w-4" /> Trở về website
             </Link>
             <div className="mt-8 max-w-4xl">
-              <h1 className="text-3xl font-black tracking-[-0.03em] sm:text-5xl">Chính sách bảo vệ dữ liệu cá nhân</h1>
+              <h1 className="text-3xl font-black tracking-[-0.03em] sm:text-5xl"><ScrambleText text="Chính sách bảo vệ dữ liệu cá nhân" /></h1>
               <p className="mt-5 max-w-3xl text-base leading-7 text-slate-300 sm:text-lg">
                 Website này là bản tĩnh, không có tài khoản, biểu mẫu đăng ký, API tiếp nhận hoặc kho hồ sơ trực tuyến. Tài liệu này hướng dẫn cách xử lý thông tin khi bạn chủ động liên hệ qua các kênh chính thức.
               </p>
@@ -65,7 +66,7 @@ export default function PrivacyPolicyPage() {
             </aside>
           )}
 
-          <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.06)] sm:p-8" aria-labelledby="controller-heading">
+          <section id="don-vi-xu-ly" className="scroll-mt-36 mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_14px_40px_rgba(15,23,42,0.06)] sm:p-8" aria-labelledby="controller-heading">
             <h2 id="controller-heading" className="text-xl font-black tracking-[-0.02em]">Đơn vị tiếp nhận và xử lý dữ liệu</h2>
             <dl className="mt-5 grid gap-5 text-sm sm:grid-cols-2">
               <div><dt className="font-bold text-slate-950">Pháp nhân</dt><dd className="mt-1 leading-6 text-slate-600">{legalEntity.legalName}</dd></div>
@@ -75,7 +76,7 @@ export default function PrivacyPolicyPage() {
             </dl>
           </section>
 
-          <section className="mt-12" aria-labelledby="data-purpose-heading">
+          <section id="muc-dich-xu-ly" className="scroll-mt-36 mt-12" aria-labelledby="data-purpose-heading">
             <h2 id="data-purpose-heading" className="text-2xl font-black tracking-[-0.025em] sm:text-3xl">Dữ liệu và mục đích xử lý</h2>
             <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">Website không có chức năng nhập, lưu hoặc tra cứu hồ sơ cá nhân trực tuyến.</p>
             <div className="mt-7 overflow-hidden rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.08)]">

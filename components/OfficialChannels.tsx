@@ -22,7 +22,7 @@ const phoneLink = (phone: string) => `tel:${phone.replace(/[^+\d]/g, '')}`;
 
 export const OfficialChannels = () => {
   return (
-    <section aria-labelledby="official-channels-heading" className="border-y border-slate-200 bg-white py-16">
+    <section id="kenh-chinh-thuc" aria-labelledby="official-channels-heading" className="scroll-mt-36 border-y border-slate-200 bg-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 id="official-channels-heading" className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">

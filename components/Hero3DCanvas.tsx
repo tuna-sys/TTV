@@ -10,6 +10,10 @@ type NetworkPoint = {
   color: string;
 };
 
+type ProjectedPoint = NetworkPoint & {
+  scale: number;
+};
+
 export const Hero3DCanvas: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,22 +26,31 @@ export const Hero3DCanvas: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number | undefined;
-    let width = (canvas.width = canvas.parentElement?.clientWidth || 400);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 340);
+    let width = 400;
+    let height = 340;
     let isInViewport = true;
     let isDocumentVisible = !document.hidden;
     let isAnimating = false;
+    let lastDrawTime = 0;
+    let pointerFrameId: number | undefined;
+    let pendingPointer: { clientX: number; clientY: number } | undefined;
     const container = containerRef.current;
+    const isSmallViewport = window.matchMedia('(max-width: 767px)').matches;
+    const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+    const frameInterval = 1000 / (isSmallViewport ? 24 : 30);
 
     const resizeCanvas = () => {
       if (!canvas.parentElement) return;
-      width = canvas.width = canvas.parentElement.clientWidth;
-      height = canvas.height = canvas.parentElement.clientHeight;
+      width = canvas.parentElement.clientWidth;
+      height = canvas.parentElement.clientHeight;
+      canvas.width = Math.round(width * devicePixelRatio);
+      canvas.height = Math.round(height * devicePixelRatio);
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     };
     const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     // 3D Nodes generation
-    const numPoints = 32;
+    const numPoints = isSmallViewport ? 18 : 24;
     const points: NetworkPoint[] = [];
 
     const colors = ['#1d4ed8', '#10b981', '#f97316', '#3b82f6', '#059669'];
@@ -69,11 +82,18 @@ export const Hero3DCanvas: React.FC = () => {
     let rotY = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = e.clientX - rect.left - width / 2;
-      const y = e.clientY - rect.top - height / 2;
-      targetRotY = (x / (width / 2)) * 0.4;
-      targetRotX = -(y / (height / 2)) * 0.4;
+      pendingPointer = { clientX: e.clientX, clientY: e.clientY };
+      if (pointerFrameId !== undefined) return;
+      pointerFrameId = requestAnimationFrame(() => {
+        if (!pendingPointer) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = pendingPointer.clientX - rect.left - width / 2;
+        const y = pendingPointer.clientY - rect.top - height / 2;
+        targetRotY = (x / (width / 2)) * 0.4;
+        targetRotX = -(y / (height / 2)) * 0.4;
+        pendingPointer = undefined;
+        pointerFrameId = undefined;
+      });
     };
 
     container?.addEventListener('mousemove', handleMouseMove);
@@ -81,8 +101,16 @@ export const Hero3DCanvas: React.FC = () => {
     let angle = 0;
 
     // Render loop
-    const render = () => {
-      angle += 0.008;
+    const render = (timestamp: number, force = false) => {
+      const elapsed = lastDrawTime ? timestamp - lastDrawTime : frameInterval;
+      if (!force && elapsed < frameInterval) {
+        if (!reduceMotionQuery.matches && isInViewport && isDocumentVisible) {
+          animationFrameId = requestAnimationFrame(render);
+        }
+        return;
+      }
+      lastDrawTime = timestamp;
+      angle += 0.008 * Math.min(2, elapsed / (1000 / 60));
       rotX += (targetRotX - rotX) * 0.05;
       rotY += (targetRotY - rotY) * 0.05;
 
@@ -92,7 +120,7 @@ export const Hero3DCanvas: React.FC = () => {
       const centerY = height / 2;
 
       // Project 3D to 2D
-      const projected = points.map((p) => {
+      const projected: ProjectedPoint[] = points.map((p) => {
         // Rotate around Y
         const x1 = p.x * Math.cos(angle + rotY) - p.z * Math.sin(angle + rotY);
         const z1 = p.z * Math.cos(angle + rotY) + p.x * Math.sin(angle + rotY);
@@ -196,7 +224,8 @@ export const Hero3DCanvas: React.FC = () => {
     const startAnimation = () => {
       if (reduceMotionQuery.matches || !isInViewport || !isDocumentVisible || isAnimating) return;
       isAnimating = true;
-      render();
+      lastDrawTime = 0;
+      animationFrameId = requestAnimationFrame(render);
     };
 
     const intersectionObserver = new IntersectionObserver(
@@ -217,7 +246,7 @@ export const Hero3DCanvas: React.FC = () => {
     const handleMotionPreferenceChange = () => {
       if (reduceMotionQuery.matches) {
         stopAnimation();
-        render();
+        render(performance.now(), true);
       } else {
         startAnimation();
       }
@@ -227,7 +256,8 @@ export const Hero3DCanvas: React.FC = () => {
     if (canvas.parentElement) resizeObserver.observe(canvas.parentElement);
     document.addEventListener('visibilitychange', handleVisibilityChange);
     reduceMotionQuery.addEventListener('change', handleMotionPreferenceChange);
-    if (reduceMotionQuery.matches) render();
+    resizeCanvas();
+    if (reduceMotionQuery.matches) render(performance.now(), true);
     else startAnimation();
 
     return () => {
@@ -237,6 +267,7 @@ export const Hero3DCanvas: React.FC = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       reduceMotionQuery.removeEventListener('change', handleMotionPreferenceChange);
       container?.removeEventListener('mousemove', handleMouseMove);
+      if (pointerFrameId !== undefined) cancelAnimationFrame(pointerFrameId);
     };
   }, []);
 
