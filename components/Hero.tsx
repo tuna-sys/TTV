@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Building2 } from 'lucide-react';
@@ -14,16 +12,16 @@ export function Hero() {
           <h1 className="text-balance text-4xl font-black leading-[1.08] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
             <ScrambleText text="Kết nối đúng người" className="text-[#005b4a]" />
             <ScrambleText text="Đồng hành đúng nhu cầu" className="text-[#991b1b]" />
-            <ScrambleText text="Phát triển bền vững" className="text-[#005b4a]" />
+            <ScrambleText text="Phát triển bền vững" className="text-[#b77900]" />
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
             Tri Thức Việt định hướng trở thành cầu nối giữa doanh nghiệp và người lao động, tập trung vào tuyển nhân viên, cung ứng nhân sự và thông tin rõ ràng trước mỗi quyết định.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/lien-he#lien-he-truc-tiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+            <Link href="/lien-he#lien-he-truc-tiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#065f46] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#047857] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#065f46]">
               Trao đổi nhu cầu tuyển dụng <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/giai-phap-doanh-nghiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700">
+            <Link href="/giai-phap-doanh-nghiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#991b1b]/35 px-5 py-3 text-sm font-bold text-[#991b1b] transition hover:border-[#991b1b] hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#991b1b]">
               Xem phương án phối hợp
             </Link>
           </div>

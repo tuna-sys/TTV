@@ -56,15 +56,15 @@ export default function EnterpriseSolutionsPage() {
 
                 {/* Quick KPI Badges */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80">
                     <span className="text-xs text-slate-400 block">Năng lực tiếp nhận</span>
                     <span className="text-base sm:text-lg font-black text-blue-400">300+ LĐ/ngày</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80">
                     <span className="text-xs text-slate-400 block">Sản lượng năm 2025</span>
                     <span className="text-base sm:text-lg font-black text-emerald-400">94.514 Lượt</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 col-span-2 sm:col-span-1">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 col-span-2 sm:col-span-1">
                     <span className="text-xs text-slate-400 block">Địa bàn trọng điểm</span>
                     <span className="text-base sm:text-lg font-black text-amber-400">Bắc Ninh - Bắc Giang</span>
                   </div>
@@ -280,7 +280,7 @@ export default function EnterpriseSolutionsPage() {
               </div>
               <div className="lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden border border-slate-700">
                 <Image
-                  src="/images/all/images-activities-originals-le-ky-ket.png"
+                  src="/images/all/images-activities-originals-le-ky-ket.webp"
                   alt="Đại diện Tri Thức Việt tại lễ ký kết thỏa thuận hợp tác giữa doanh nghiệp với nhà trường"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"

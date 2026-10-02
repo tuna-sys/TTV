@@ -75,32 +75,63 @@ export const OfficialChannels = () => {
 
           {/* Cards Right: Google Maps + Direct Contacts */}
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-            {/* Card 2: Google Maps */}
-            <a
-              href={channels.contact.map}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-3xl bg-emerald-50/60 p-8 border border-emerald-200/80 shadow-sm hover:shadow-xl hover:border-emerald-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-            >
+            {/* Card 2: Google Maps trực tiếp */}
+            <div className="group rounded-3xl bg-emerald-50/60 p-6 sm:p-7 border border-emerald-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <MapPin className="h-6 w-6" />
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">
+                        Định Vị Trụ Sở
+                      </span>
+                      <h3 className="text-base sm:text-lg font-black text-slate-900 leading-tight">Vị Trí Trên Google Maps</h3>
+                    </div>
+                  </div>
+                  <a
+                    href={channels.contact.map}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm transition-all active:scale-95"
+                  >
+                    <span>Chỉ đường</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">
-                  Định Vị Trụ Sở
-                </span>
-                <h3 className="text-xl font-black text-slate-900">Vị Trí Trên Google Maps</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                  Phố Cầu Ngà, Phường Nam Sơn, Tỉnh Bắc Ninh. Mở bản đồ để nhận chỉ đường đến văn phòng.
+                <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                  Phố Cầu Ngà, Phường Nam Sơn, TP. Bắc Ninh. Bạn có thể xem bản đồ trực tiếp hoặc phóng to để tìm đường.
                 </p>
+
+                {/* Khung iframe Google Maps nhúng trực tiếp */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-emerald-200/80 bg-slate-100 shadow-inner">
+                  <iframe
+                    src="https://maps.google.com/maps?q=21.167364,106.1014925+(Tri%20Th%E1%BB%A9c%20Vi%E1%BB%87t)&hl=vi&z=15&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Vị trí Công ty Tri Thức Việt trên Google Maps"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
-              <div className="mt-8 pt-4 border-t border-emerald-200/60">
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-800 group-hover:underline">
-                  <span>Mở ứng dụng bản đồ</span>
-                  <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
+
+              <div className="mt-4 pt-3 border-t border-emerald-200/60 flex items-center justify-between">
+                <span className="text-xs text-slate-500">Mở trong ứng dụng Google Maps</span>
+                <a
+                  href={channels.contact.map}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 hover:underline"
+                >
+                  <span>Mở Google Maps</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               </div>
-            </a>
+            </div>
 
             {/* Card 3: Direct Contact */}
             <div className="group rounded-3xl bg-slate-50 p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">

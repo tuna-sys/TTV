@@ -28,6 +28,27 @@ export function ActivityLightCarousel({ items }: Props) {
   const [selectedItem, setSelectedItem] = useState<ActivityItem | null>(null);
   const [visibleCount, setVisibleCount] = useState(3);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [documentVisible, setDocumentVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(true);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotion = () => setReducedMotion(motionQuery.matches);
+    const updateVisibility = () => setDocumentVisible(!document.hidden);
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting));
+    if (carouselRef.current) observer.observe(carouselRef.current);
+    updateMotion();
+    updateVisibility();
+    motionQuery.addEventListener('change', updateMotion);
+    document.addEventListener('visibilitychange', updateVisibility);
+    return () => {
+      observer.disconnect();
+      motionQuery.removeEventListener('change', updateMotion);
+      document.removeEventListener('visibilitychange', updateVisibility);
+    };
+  }, []);
 
   // Responsive items per page
   useEffect(() => {
@@ -58,7 +79,7 @@ export function ActivityLightCarousel({ items }: Props) {
 
   // Autoplay
   useEffect(() => {
-    if (isPaused || selectedItem !== null) {
+    if (isPaused || selectedItem !== null || !isVisible || !documentVisible || reducedMotion || maxIndex === 0) {
       if (timerRef.current) clearInterval(timerRef.current);
       return;
     }
@@ -70,10 +91,10 @@ export function ActivityLightCarousel({ items }: Props) {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused, selectedItem, nextSlide]);
+  }, [isPaused, selectedItem, nextSlide, isVisible, documentVisible, reducedMotion, maxIndex]);
 
   return (
-    <div className="relative my-8 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+    <div ref={carouselRef} className="relative my-8 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
       {/* Carousel Top Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-100">
         <div className="flex items-center gap-3">

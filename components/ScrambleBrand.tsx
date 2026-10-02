@@ -40,7 +40,12 @@ export function ScrambleBrand() {
 
   return (
     <span aria-label={BRAND} className="inline-block min-w-[8.6rem]">
-      <span aria-hidden="true">{displayText}</span>
+      <span aria-hidden="true" className="text-[#065f46] transition-colors group-hover:text-[#047857]">
+        {displayText.slice(0, 8)}
+      </span>
+      <span aria-hidden="true" className="text-[#991b1b] transition-colors group-hover:text-[#b91c1c]">
+        {displayText.slice(8)}
+      </span>
     </span>
   );
 }

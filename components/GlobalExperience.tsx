@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Building2, Home, Phone, UsersRound } from 'lucide-react';
+import { BriefcaseBusiness, Building2, Home, Phone, UsersRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 type PageSection = {
@@ -54,7 +54,8 @@ const emptySections: PageSection[] = [];
 const bottomLinks = [
   { href: '/', label: 'Trang chủ', icon: Home },
   { href: '/giai-phap-doanh-nghiep', label: 'Doanh nghiệp', icon: Building2 },
-  { href: '/nguoi-lao-dong', label: 'Người lao động', icon: UsersRound },
+  { href: '/nguoi-lao-dong', label: 'Việc làm', icon: UsersRound },
+  { href: '/tuyen-nhan-vien-noi-bo', label: 'Nội bộ', icon: BriefcaseBusiness },
   { href: '/lien-he', label: 'Liên hệ', icon: Phone },
 ];
 
@@ -157,11 +158,11 @@ export function GlobalExperience() {
       )}
 
       <nav className="ttv-bottom-nav fixed inset-x-0 bottom-0 z-[70] border-t border-slate-200 bg-white shadow-[0_-12px_32px_-24px_rgba(15,23,42,0.65)] lg:hidden" aria-label="Điều hướng nhanh">
-        <div className="relative mx-auto grid max-w-lg grid-cols-4 px-2 pb-[max(0.45rem,env(safe-area-inset-bottom))] pt-2">
+        <div className="relative mx-auto grid max-w-lg grid-cols-5 px-2 pb-[max(0.45rem,env(safe-area-inset-bottom))] pt-2">
           {activeBottomIndex >= 0 && (
             <span
               className="pointer-events-none absolute left-2 top-1 h-1 rounded-full bg-blue-700 transition-transform duration-300 ease-out"
-              style={{ width: 'calc((100% - 1rem) / 4)', transform: `translateX(${activeBottomIndex * 100}%)` }}
+              style={{ width: `calc((100% - 1rem) / ${bottomLinks.length})`, transform: `translateX(${activeBottomIndex * 100}%)` }}
               aria-hidden="true"
             />
           )}
@@ -172,11 +173,11 @@ export function GlobalExperience() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl px-1 text-xs font-bold transition-colors ${active ? 'text-blue-800' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'}`}
+                className={`flex min-h-14 min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-0.5 text-[10px] font-semibold transition-colors min-[375px]:text-[11px] sm:text-xs ${active ? 'text-blue-800' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'}`}
                 aria-current={active ? 'page' : undefined}
               >
-                <Icon className={`h-5 w-5 transition-transform ${active ? '-translate-y-0.5' : ''}`} aria-hidden="true" />
-                <span>{item.label}</span>
+                <Icon className="h-5 w-5 flex-none" aria-hidden="true" />
+                <span className="flex h-4 items-center whitespace-nowrap leading-4">{item.label}</span>
               </Link>
             );
           })}

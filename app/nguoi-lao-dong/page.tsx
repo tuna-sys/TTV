@@ -54,15 +54,15 @@ export default function WorkerSupportPage() {
 
                 {/* Quick Trust Badges */}
                 <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-orange-400 block">30</span>
                     <span className="text-xs text-slate-300">Xe đưa đón</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-amber-400 block">11</span>
                     <span className="text-xs text-slate-300">Khu ký túc xá</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-emerald-400 block">0 VNĐ</span>
                     <span className="text-xs text-slate-300">Phí người lao động</span>
                   </div>

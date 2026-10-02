@@ -19,7 +19,7 @@ test('trang liên hệ chỉ cung cấp các kênh chính thức', async ({ page
 
 test('không bịa tin tuyển dụng khi danh sách đang trống', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Dành cho người lao động', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 3, name: /^Dành cho người lao động$/i })).toBeVisible();
   await expect(page.getByRole('link', { name: /ứng tuyển|nộp hồ sơ/i })).toHaveCount(0);
 });
 
@@ -45,36 +45,33 @@ test('các trang public không gọi API nội bộ', async ({ page }) => {
   expect(apiRequests).toEqual([]);
 });
 
-test('hai tầng điều hướng không chồng lên nhau khi cuộn', async ({ page }) => {
+test('thanh điều hướng bám trên cùng khi cuộn', async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => window.scrollTo(0, 420));
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(100);
 
   const geometry = await page.locator('header').evaluate((header) => {
     const shell = header.parentElement;
-    const utilityBar = header.previousElementSibling;
-    if (!shell || !utilityBar) throw new Error('Không tìm thấy cấu trúc điều hướng hai tầng');
+    if (!shell) throw new Error('Không tìm thấy cấu trúc điều hướng');
 
     const shellRect = shell.getBoundingClientRect();
-    const utilityRect = utilityBar.getBoundingClientRect();
     const headerRect = header.getBoundingClientRect();
 
     return {
       shellTop: shellRect.top,
-      utilityBottom: utilityRect.bottom,
       headerTop: headerRect.top,
       headerBottom: headerRect.bottom,
     };
   });
 
   expect(Math.abs(geometry.shellTop)).toBeLessThanOrEqual(1);
-  expect(geometry.headerTop).toBeGreaterThanOrEqual(geometry.utilityBottom - 1);
+  expect(Math.abs(geometry.headerTop)).toBeLessThanOrEqual(1);
   expect(geometry.headerBottom).toBeGreaterThan(geometry.headerTop);
 });
 
 test('menu desktop đủ lớn và không gây tràn ngang', async ({ page }) => {
   for (const viewport of [
-    { width: 1280, height: 800, expectedFontSize: '12px' },
+    { width: 1280, height: 800, expectedFontSize: '14px' },
     { width: 1536, height: 900, expectedFontSize: '14px' },
     { width: 1920, height: 1080, expectedFontSize: '14px' },
   ]) {

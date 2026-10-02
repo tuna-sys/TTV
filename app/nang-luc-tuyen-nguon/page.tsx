@@ -54,15 +54,15 @@ export default function SourcingCapacityPage() {
 
                 {/* Quick Sourcing Metrics */}
                 <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-emerald-400 block">8 Điểm Chạm</span>
                     <span className="text-xs text-slate-300">Đa kênh tiếp cận</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-teal-400 block">{publicRecruitmentEvidence.annualRecruitment}</span>
                     <span className="text-xs text-slate-300">Lượt tuyển 2025</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
+                  <div className="hero-metric-card p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-center">
                     <span className="text-base sm:text-xl font-black text-amber-400 block">Liên Vùng</span>
                     <span className="text-xs text-slate-300">Bắc Bộ & Trung Bộ</span>
                   </div>
@@ -217,7 +217,7 @@ export default function SourcingCapacityPage() {
               <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm hover:shadow-md transition-all group">
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <Image
-                    src="/images/all/bai-xe-tri-thuc-viet.jpg"
+                    src="/images/all/images-evidence-doi-xe-tri-thuc-viet.jpg"
                     alt="Toàn cảnh bãi xe phục vụ công tác điều phối của Tri Thức Việt"
                     fill
                     sizes="(min-width: 1024px) 30vw, 100vw"

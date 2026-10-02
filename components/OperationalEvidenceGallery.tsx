@@ -25,7 +25,7 @@ export function OperationalEvidenceGallery() {
       desc: 'Hình ảnh gốc về một chương trình đưa đón người lao động của Tri Thức Việt.',
     },
     {
-      src: '/images/all/bai-xe-tri-thuc-viet.jpg',
+      src: '/images/all/images-evidence-doi-xe-tri-thuc-viet.jpg',
       alt: 'Toàn cảnh bãi xe phục vụ công tác điều phối của Tri Thức Việt',
       title: 'Bãi xe điều phối',
       desc: `${transportCapacity.value} ${transportCapacity.label}`,

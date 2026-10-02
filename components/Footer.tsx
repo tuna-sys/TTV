@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -88,6 +86,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/nguoi-lao-dong" className="hover:text-orange-400 transition-colors">
                   Điều Kiện Hỗ Trợ Người Lao Động
+                </Link>
+              </li>
+              <li>
+                <Link href="/tuyen-nhan-vien-noi-bo" className="hover:text-amber-400 transition-colors">
+                  Tuyển Dụng Nhân Viên Nội Bộ
                 </Link>
               </li>
               <li>

@@ -2,24 +2,25 @@ import { expect, test } from '@playwright/test';
 
 test('carousel tự chuyển và cho phép người dùng tạm dừng', async ({ page }) => {
   await page.goto('/gioi-thieu/');
-  const carousel = page.getByRole('region', { name: 'Tư liệu hoạt động Tri Thức Việt' });
-  await carousel.scrollIntoViewIfNeeded();
-
-  await expect(carousel).toHaveAttribute('data-autoplay', 'running');
-  await expect(carousel.getByText('Ảnh 1 / 10')).toBeVisible();
-  await expect(carousel.getByText('Ảnh 2 / 10')).toBeVisible({ timeout: 7000 });
-
-  await carousel.getByRole('button', { name: 'Tạm dừng trình chiếu' }).click();
-  await expect(carousel).toHaveAttribute('data-autoplay', 'paused');
-  await expect(carousel.getByRole('button', { name: 'Tiếp tục trình chiếu' })).toBeVisible();
+  const pause = page.getByRole('button', { name: 'Tạm dừng', exact: true });
+  await pause.scrollIntoViewIfNeeded();
+  const counter = page.locator('div.my-8').locator('span').filter({ hasText: /^\d+ - \d+ \/ \d+$/ });
+  const initial = await counter.innerText();
+  await expect(counter).not.toHaveText(initial, { timeout: 7000 });
+  await pause.click();
+  const paused = await counter.innerText();
+  await page.waitForTimeout(4800);
+  await expect(counter).toHaveText(paused);
+  await expect(page.getByRole('button', { name: 'Tiếp tục tự động chuyển', exact: true })).toBeVisible();
 });
 
 test('carousel không tự chạy khi người dùng giảm chuyển động', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/gioi-thieu/');
-  const carousel = page.getByRole('region', { name: 'Tư liệu hoạt động Tri Thức Việt' });
-  await carousel.scrollIntoViewIfNeeded();
-
-  await expect(carousel).toHaveAttribute('data-autoplay', 'reduced-motion');
-  await expect(carousel.getByText('Ảnh 1 / 10')).toBeVisible();
+  const pause = page.getByRole('button', { name: 'Tạm dừng', exact: true });
+  await pause.scrollIntoViewIfNeeded();
+  const counter = page.locator('div.my-8').locator('span').filter({ hasText: /^\d+ - \d+ \/ \d+$/ });
+  const initial = await counter.innerText();
+  await page.waitForTimeout(4800);
+  await expect(counter).toHaveText(initial);
 });

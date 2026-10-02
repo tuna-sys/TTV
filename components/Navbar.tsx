@@ -11,15 +11,13 @@ import {
   Users,
   ChevronRight
 } from 'lucide-react';
-import { siteConfig } from '../data/siteData';
 import { BrandMarquee } from './BrandMarquee';
 import { ScrambleBrand } from './ScrambleBrand';
 
 const navLinks = [
   { label: 'Trang Chủ', href: '/' },
-  { label: 'Giải pháp doanh nghiệp', href: '/giai-phap-doanh-nghiep' },
-  { label: 'Việc làm & hỗ trợ NLĐ', href: '/nguoi-lao-dong' },
   { label: 'Năng lực tuyển dụng', href: '/nang-luc-tuyen-nguon' },
+  { label: 'Tuyển dụng nội bộ', href: '/tuyen-nhan-vien-noi-bo' },
   { label: 'Về Tri Thức Việt', href: '/gioi-thieu' },
   { label: 'Liên hệ', href: '/lien-he' },
 ];
@@ -40,27 +38,6 @@ export const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 w-full">
-      {/* Top Notification Bar */}
-      <div className="border-b border-slate-800 bg-slate-950 px-4 text-xs text-slate-300">
-        <div className="mx-auto flex min-h-10 max-w-7xl items-center justify-between gap-3">
-          <div className="hidden min-w-0 items-center gap-2 sm:flex">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
-            <span className="font-medium text-slate-300 truncate text-[11px] sm:text-xs">
-              {siteConfig.slogan}
-            </span>
-          </div>
-          <div className="flex w-full flex-shrink-0 items-center justify-between gap-3 whitespace-nowrap text-[11px] font-semibold sm:w-auto sm:justify-end sm:gap-4 sm:text-xs">
-            <Link href="/giai-phap-doanh-nghiep" className="inline-flex min-h-10 items-center text-blue-400 hover:underline">
-              Dành cho Doanh Nghiệp
-            </Link>
-            <span className="text-slate-600">|</span>
-            <Link href="/nguoi-lao-dong" className="inline-flex min-h-10 items-center text-orange-400 hover:underline">
-              Dành cho Người Lao Động
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Sticky Navigation */}
       <header
         className={`relative z-40 transition-all duration-300 ${
@@ -84,7 +61,7 @@ export const Navbar = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-base xl:text-lg font-black tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors whitespace-nowrap leading-none mb-1">
+              <span className="text-base xl:text-lg font-black tracking-tight whitespace-nowrap leading-none mb-1">
                 <ScrambleBrand />
               </span>
               <span className="text-[8.5px] font-bold tracking-wider text-slate-500 uppercase whitespace-nowrap leading-none xl:hidden 2xl:block 2xl:text-[9.5px]">
@@ -94,14 +71,14 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-0.5 text-xs font-semibold text-slate-700 2xl:gap-1 2xl:text-sm">
+          <nav className="hidden xl:flex items-center gap-1 xl:gap-2 text-xs font-semibold text-slate-700 xl:text-sm">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`whitespace-nowrap px-2 xl:px-2.5 py-1.5 rounded-lg transition-colors ${
+                  className={`whitespace-nowrap px-2.5 py-1.5 rounded-lg transition-colors ${
                     isActive
                       ? 'text-blue-700 bg-blue-50 font-bold'
                       : 'hover:text-blue-700 hover:bg-blue-50'
@@ -114,21 +91,21 @@ export const Navbar = () => {
           </nav>
 
           {/* Dual Action Buttons */}
-          <div className="hidden xl:flex items-center gap-2 flex-shrink-0">
+          <div className="hidden xl:flex items-center gap-2 xl:gap-2.5 flex-shrink-0">
             <Link
               href="/nguoi-lao-dong"
-              className="whitespace-nowrap inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs 2xl:text-sm font-bold text-orange-700 bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all active:scale-95 shadow-sm"
+              className="whitespace-nowrap inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold text-orange-700 bg-orange-50 hover:bg-orange-100 border border-orange-200 transition-all active:scale-95 shadow-sm"
             >
               <Users className="w-3.5 h-3.5 text-orange-600 flex-shrink-0" />
-              <span>Tìm Việc</span>
+              <span>Việc làm &amp; hỗ trợ NLĐ</span>
             </Link>
 
             <Link
               href="/giai-phap-doanh-nghiep"
-              className="whitespace-nowrap inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs 2xl:text-sm font-bold text-white bg-blue-700 hover:bg-blue-800 transition-all active:scale-95 shadow-md shadow-blue-700/20"
+              className="whitespace-nowrap inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs xl:text-sm font-bold text-white bg-blue-700 hover:bg-blue-800 transition-all active:scale-95 shadow-md shadow-blue-700/20"
             >
               <Building2 className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>Doanh Nghiệp</span>
+              <span>Dành cho Doanh Nghiệp</span>
             </Link>
           </div>
 
@@ -175,7 +152,7 @@ export const Navbar = () => {
                 className="w-full py-2.5 px-3 rounded-lg text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 text-center flex items-center justify-center gap-1.5"
               >
                 <Users className="w-4 h-4 text-orange-600" />
-                <span>Tìm Việc</span>
+                <span>Việc làm &amp; hỗ trợ NLĐ</span>
               </Link>
               <Link
                 href="/giai-phap-doanh-nghiep"
@@ -183,7 +160,7 @@ export const Navbar = () => {
                 className="w-full py-2.5 px-3 rounded-lg text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 text-center flex items-center justify-center gap-1.5 shadow-sm"
               >
                 <Building2 className="w-4 h-4" />
-                <span>Doanh Nghiệp</span>
+                <span>Dành cho Doanh Nghiệp</span>
               </Link>
             </div>
           </div>
