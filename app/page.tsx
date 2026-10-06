@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
+import { ActivityZoomWall } from '../components/ActivityZoomWall';
 import { Footer } from '../components/Footer';
 import { OfficialChannels } from '../components/OfficialChannels';
 import { RecruitmentCaseStudy } from '../components/RecruitmentCaseStudy';
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <ActivityZoomWall />
         <RecruitmentCaseStudy />
 
         <section id="doi-tac" className="scroll-mt-36 border-b border-slate-200 bg-white" aria-labelledby="partners-heading">
