@@ -11,7 +11,6 @@ export function OrganizationJsonLd() {
     foundingDate: legalEntity.registrationDateIso,
     url: siteConfig.website,
     email: siteConfig.email,
-    telephone: legalEntity.phoneHref.replace('tel:', ''),
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Phố Cầu Ngà',

@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
               <div><dt className="font-bold text-slate-950">Pháp nhân</dt><dd className="mt-1 leading-6 text-slate-600">{legalEntity.legalName}</dd></div>
               <div><dt className="font-bold text-slate-950">Mã số thuế</dt><dd className="mt-1 leading-6 text-slate-600"><a href={legalEntity.sourceUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-700 underline underline-offset-4 hover:text-blue-900">{legalEntity.taxId} · Tra cứu hồ sơ công khai</a></dd></div>
               <div><dt className="font-bold text-slate-950">Địa chỉ đăng ký</dt><dd className="mt-1 leading-6 text-slate-600">{legalEntity.registeredAddress}</dd></div>
-              <div><dt className="font-bold text-slate-950">Kênh tiếp nhận yêu cầu</dt><dd className="mt-1 leading-6 text-slate-600">{siteConfig.email} · {legalEntity.phone}</dd></div>
+              <div><dt className="font-bold text-slate-950">Kênh tiếp nhận yêu cầu</dt><dd className="mt-1 leading-6 text-slate-600">{siteConfig.email}</dd></div>
             </dl>
           </section>
 

@@ -79,10 +79,10 @@ export default function EnterpriseSolutionsPage() {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <a
-                    href="tel:+84972998702"
+                    href="/lien-he"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition-all"
                   >
-                    <span>Hotline B2B: 0972 998 702</span>
+                    <span>Liên hệ tư vấn</span>
                   </a>
                 </div>
               </div>

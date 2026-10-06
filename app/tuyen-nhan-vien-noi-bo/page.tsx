@@ -176,11 +176,11 @@ export default function InternalRecruitmentPage() {
 
                 <div className="pt-2 flex flex-wrap gap-4">
                   <a
-                    href={officialChannels.phones[0]?.href || 'tel:+84972998702'}
+                    href={officialChannels.phones[0].href}
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-amber-950 font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95"
                   >
                     <PhoneCall className="w-4 h-4" />
-                    <span>Gọi Ứng Tuyển: {officialChannels.phones[0]?.display || '0972 998 702'}</span>
+                    <span>Gọi Ứng Tuyển: {officialChannels.phones[0].display}</span>
                   </a>
                   <Link
                     href="/lien-he"
@@ -263,7 +263,7 @@ export default function InternalRecruitmentPage() {
                     <div className="mt-5 pt-4 border-t border-slate-200/80 flex items-center justify-between">
                       <span className="text-xs font-semibold text-slate-500">Tiếp nhận hồ sơ</span>
                       <a
-                        href={officialChannels.phones[0]?.href || 'tel:+84972998702'}
+                        href={officialChannels.phones[0].href}
                         className="inline-flex items-center gap-1 text-xs font-bold text-amber-900 group-hover:text-amber-600"
                       >
                         <span>Ứng tuyển</span>

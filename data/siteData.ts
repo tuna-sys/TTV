@@ -6,7 +6,6 @@ export const siteConfig = {
   name: 'Tri Thức Việt',
   fullName: 'Tri Thức Việt – Cung Ứng Nhân Lực & Tuyển Nhân Viên',
   slogan: 'Kết nối đúng người – Đồng hành đúng nhu cầu – Phát triển bền vững',
-  hotline: '+84 97 299 87 02',
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || 'bntrithucviet@gmail.com',
   website: getSiteUrl(),
 };
@@ -22,8 +21,6 @@ export const legalEntity = {
   registrationDateIso: '2009-10-30',
   status: 'Đang hoạt động',
   registeredAddress: 'Phố Cầu Ngà, Phường Nam Sơn, tỉnh Bắc Ninh, Việt Nam',
-  phone: '0972 998 702',
-  phoneHref: 'tel:+84972998702',
   sourceUrl: 'https://masothue.com/2300507524-cong-ty-tnhh-dao-tao-ngoai-ngu-va-tin-hoc-tri-thuc-viet',
   crossCheckUrl: 'https://thuvienphapluat.vn/ma-so-thue/cong-ty-tnhh-dao-tao-ngoai-ngu-va-tin-hoc-tri-thuc-viet-mst-2300507524.html',
   verifiedAt: '25/08/2026',
@@ -119,7 +116,6 @@ export const officialChannels = {
   featuredPost: 'https://web.facebook.com/photo/?fbid=734962355296511&set=a.734962361963177',
   map: 'https://maps.app.goo.gl/ENoNuTkTt4iuoS9t9',
   phones: [
-    { display: '+84 97 299 87 02', href: 'tel:+84972998702' },
     { display: '096 133 73 30', href: 'tel:0961337330' },
   ],
 };

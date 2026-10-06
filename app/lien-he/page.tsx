@@ -46,10 +46,19 @@ export default function ContactPage() {
                 <ExternalLink className="mt-0.5 h-6 w-6 flex-none text-orange-300" />
                 <span><strong className="block text-sm text-white">Facebook tuyển dụng</strong><span className="mt-1 block text-sm font-semibold text-orange-200">Mở kênh chính thức <ExternalLink className="ml-1 inline h-3.5 w-3.5" /></span></span>
               </a>
-              <a href={officialChannels.map} target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 rounded-2xl bg-slate-900 p-5 transition hover:bg-slate-950">
-                <MapPin className="mt-0.5 h-6 w-6 flex-none text-pink-300" />
-                <span><strong className="block text-sm text-white">Google Maps</strong><span className="mt-1 block text-sm font-semibold text-pink-200">Xem vị trí và chỉ đường <ExternalLink className="ml-1 inline h-3.5 w-3.5" /></span></span>
-              </a>
+              <div className="overflow-hidden rounded-2xl bg-slate-900 sm:col-span-2">
+                <div className="flex items-center justify-between gap-4 p-5">
+                  <span className="flex items-center gap-3 text-sm font-bold"><MapPin className="h-5 w-5 text-pink-200" />Vị trí trên Google Maps</span>
+                  <a href={officialChannels.map} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-blue-200 hover:underline">Xem chỉ đường <ExternalLink className="ml-1 inline h-3.5 w-3.5" /></a>
+                </div>
+                <iframe
+                  src="https://maps.google.com/maps?q=21.167364,106.1014925+(Tri%20Th%E1%BB%A9c%20Vi%E1%BB%87t)&hl=vi&z=15&output=embed"
+                  title="Vị trí Công ty Tri Thức Việt trên Google Maps"
+                  className="h-80 w-full border-0 sm:h-96"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
             <p className="mt-7 border-t border-slate-700 pt-6 text-xs leading-6 text-slate-400">Không gửi ảnh giấy tờ tùy thân hoặc thông tin nhạy cảm qua kênh chưa được xác minh.</p>
           </div>
