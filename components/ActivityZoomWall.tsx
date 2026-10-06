@@ -129,10 +129,10 @@ const ALL_PHOTOS: ActivityPhoto[] = [
   {
     id: 'welcome-event',
     src: '/images/TTV/optimized/DSC07717.webp',
-    title: 'Đón tiếp đại biểu và cán bộ nhân viên',
+    title: 'Tập thể nhân viên Tri Thức Việt',
     category: 'kỷ niệm',
     categoryLabel: 'Tập thể & Kỷ niệm',
-    description: 'Không khí trang trọng tại khu vực sảnh chào đón trước giờ khai mạc ngày hội.',
+    description: 'Nhân viên Tri Thức Việt chụp ảnh cùng nhau tại sự kiện.',
   },
   {
     id: 'trust-forward',
