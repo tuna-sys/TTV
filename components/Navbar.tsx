@@ -61,11 +61,11 @@ export const Navbar = () => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-base xl:text-lg font-black tracking-tight whitespace-nowrap leading-none mb-1">
+              <span className="text-xl xl:text-2xl font-black tracking-tight whitespace-nowrap leading-none mb-1">
                 <ScrambleBrand />
               </span>
-              <span className="text-[8.5px] font-bold tracking-wider text-slate-500 uppercase whitespace-nowrap leading-none xl:hidden 2xl:block 2xl:text-[9.5px]">
-                Cung Ứng Nhân Lực & Tuyển Nhân Viên
+              <span className="text-xs font-bold tracking-wider text-slate-600 uppercase whitespace-nowrap leading-none">
+                Cung Ứng Nhân Lực
               </span>
             </div>
           </Link>

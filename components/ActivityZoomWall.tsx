@@ -14,10 +14,11 @@ export interface ActivityPhoto {
   id: string;
   src: string;
   title: string;
-  category: 'kỷ niệm' | 'teambuilding' | 'vinh danh' | 'đội ngũ';
+  category: 'kỷ niệm' | 'teambuilding' | 'vinh danh' | 'đội ngũ' | 'cộng đồng' | 'thể thao';
   categoryLabel: string;
   description: string;
   isCenter?: boolean;
+  objectPosition?: string;
 }
 
 const ALL_PHOTOS: ActivityPhoto[] = [
@@ -176,7 +177,28 @@ const ALL_PHOTOS: ActivityPhoto[] = [
   },
 ];
 
-// Split 19 photos into 3 balanced thematic rows
+const COMMUNITY_PHOTO: ActivityPhoto = {
+  id: 'nam-son-community',
+  src: '/images/TTV/optimized/nam-son-community.webp',
+  title: 'Tri Thức Việt tại Trường Mầm non Nam Sơn',
+  category: 'cộng đồng',
+  categoryLabel: 'Hoạt động cộng đồng',
+  description: 'Hình ảnh giao lưu tại Trường Mầm non Nam Sơn trong không gian đón Tết.',
+};
+
+const SPORTS_PHOTO: ActivityPhoto = {
+  id: 'sports-2026',
+  src: '/images/TTV/optimized/sports-2026.webp',
+  title: 'Tri Thức Việt tham gia giải thể thao năm 2026',
+  category: 'thể thao',
+  categoryLabel: 'Thể thao & Đời sống đội ngũ',
+  description: 'Đội ngũ Tri Thức Việt tại giải thể thao công nhân, viên chức, người lao động năm 2026.',
+  objectPosition: 'center 85%',
+};
+
+ALL_PHOTOS.push(COMMUNITY_PHOTO, SPORTS_PHOTO);
+
+// Three thematic rows, including community and sports activities.
 const ROW_1_PHOTOS = [
   ALL_PHOTOS[2], // beach-energy
   ALL_PHOTOS[3], // award-excellence
@@ -194,6 +216,7 @@ const ROW_2_PHOTOS = [
   ALL_PHOTOS[11], // leadership-core
   ALL_PHOTOS[10], // youth-drive
   ALL_PHOTOS[18], // partner-future
+  COMMUNITY_PHOTO,
 ];
 
 const ROW_3_PHOTOS = [
@@ -203,6 +226,7 @@ const ROW_3_PHOTOS = [
   ALL_PHOTOS[14], // trust-forward
   ALL_PHOTOS[15], // warm-smiles
   ALL_PHOTOS[17], // cozy-gathering
+  SPORTS_PHOTO,
 ];
 
 export function ActivityZoomWall() {
@@ -268,6 +292,7 @@ export function ActivityZoomWall() {
           decoding="async"
           sizes={isFeatured ? '(min-width: 768px) 450px, 330px' : '(min-width: 768px) 350px, 260px'}
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          style={{ objectPosition: photo.objectPosition }}
         />
 
         {/* Gradient dark overlay */}

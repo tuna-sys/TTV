@@ -9,13 +9,10 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
         <div className="max-w-3xl">
           <h1 className="text-balance text-4xl font-black leading-[1.08] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
-            Kết nối việc làm<br />Tuyển dụng & cung ứng lao động
-          </h1>
-          <p className="mt-5 text-lg font-bold leading-8">
             <ScrambleText text="Kết nối đúng người" className="text-[#005b4a]" />
             <ScrambleText text="Đồng hành đúng nhu cầu" className="text-[#991b1b]" />
             <ScrambleText text="Phát triển bền vững" className="text-[#b77900]" />
-          </p>
+          </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
             Tri Thức Việt định hướng trở thành cầu nối giữa doanh nghiệp và người lao động, tập trung vào tuyển nhân viên, cung ứng nhân sự và thông tin rõ ràng trước mỗi quyết định.
           </p>
