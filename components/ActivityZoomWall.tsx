@@ -196,10 +196,29 @@ const SPORTS_PHOTO: ActivityPhoto = {
   objectPosition: 'center 85%',
 };
 
-ALL_PHOTOS.push(COMMUNITY_PHOTO, SPORTS_PHOTO);
+const LAW_AWARENESS_PHOTO: ActivityPhoto = {
+  id: 'que-vo-law-awareness',
+  src: '/images/TTV/optimized/que-vo-law-awareness.webp',
+  title: 'Tuyên truyền, phổ biến pháp luật tại KCN Quế Võ',
+  category: 'cộng đồng',
+  categoryLabel: 'Hoạt động cộng đồng',
+  description: 'Hình ảnh tại hội nghị tuyên truyền, phổ biến pháp luật về phòng chống tội phạm trên địa bàn KCN Quế Võ.',
+};
+
+const TEAM_AERIAL_PHOTO: ActivityPhoto = {
+  id: 'team-ttv-aerial',
+  src: '/images/TTV/optimized/team-ttv-aerial.webp',
+  title: 'Tập thể Tri Thức Việt xếp chữ TTV',
+  category: 'teambuilding',
+  categoryLabel: 'Teambuilding',
+  description: 'Góc nhìn từ trên cao ghi lại đội ngũ xếp thành chữ TTV trên bãi biển.',
+};
+
+ALL_PHOTOS.push(COMMUNITY_PHOTO, SPORTS_PHOTO, LAW_AWARENESS_PHOTO, TEAM_AERIAL_PHOTO);
 
 // Three thematic rows, including community and sports activities.
 const ROW_1_PHOTOS = [
+  LAW_AWARENESS_PHOTO,
   ALL_PHOTOS[2], // beach-energy
   ALL_PHOTOS[3], // award-excellence
   ALL_PHOTOS[13], // welcome-event
@@ -220,6 +239,7 @@ const ROW_2_PHOTOS = [
 ];
 
 const ROW_3_PHOTOS = [
+  TEAM_AERIAL_PHOTO,
   ALL_PHOTOS[8], // team-kickoff
   ALL_PHOTOS[5], // gala-dinner-cozy
   ALL_PHOTOS[12], // memorable-journey

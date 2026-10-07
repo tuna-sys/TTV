@@ -37,6 +37,10 @@ const legalFields = [
 ];
 
 const activityEvidence = [
+  { src: '/images/TTV/optimized/nam-son-community.webp', alt: 'Hình ảnh giao lưu tại Trường Mầm non Nam Sơn trong không gian đón Tết', label: 'Tri Thức Việt tại Trường Mầm non Nam Sơn' },
+  { src: '/images/TTV/optimized/sports-2026.webp', alt: 'Đội ngũ Tri Thức Việt tại giải thể thao công nhân, viên chức, người lao động năm 2026', label: 'Tri Thức Việt tham gia giải thể thao năm 2026' },
+  { src: '/images/TTV/optimized/que-vo-law-awareness.webp', alt: 'Hội nghị tuyên truyền, phổ biến pháp luật về phòng chống tội phạm trên địa bàn KCN Quế Võ', label: 'Tuyên truyền, phổ biến pháp luật tại KCN Quế Võ' },
+  { src: '/images/TTV/optimized/team-ttv-aerial.webp', alt: 'Góc nhìn từ trên cao ghi lại đội ngũ xếp thành chữ TTV trên bãi biển', label: 'Tập thể Tri Thức Việt xếp chữ TTV' },
   { src: '/images/all/ngay-hoi-vui-tet-don-xuan.jpg', alt: 'Hoạt động trao quà tại Ngày hội Vui Tết đón Xuân ở Trường Tiểu học và Trung học cơ sở Vân Dương', label: 'Ngày hội Vui Tết đón Xuân' },
   { src: '/images/all/images-activities-gala-dinner.webp', alt: 'Tập thể Tri Thức Việt tại sự kiện Gala Dinner', label: 'Gala Dinner Tri Thức Việt' },
   { src: '/images/all/images-activities-xuat-phat-xe-0-dong.webp', alt: 'Chương trình Chuyến xe 0 đồng của Tri Thức Việt', label: 'Chuyến xe 0 đồng' },

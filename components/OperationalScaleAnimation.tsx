@@ -62,46 +62,8 @@ export function OperationalScaleAnimation() {
             <path className="operational-flow-path" d="M 166 204 L 500 204 L 834 204" fill="none" stroke="#bfdbfe" strokeLinecap="round" strokeWidth="3" />
           </svg>
 
-          {stations.map((station, index) => {
+          {stations.map((station) => {
             const Icon = station.icon;
-            const isMiddle = index === 1;
-
-            if (isMiddle) {
-              return (
-                <div
-                  key={station.label}
-                  className="relative min-w-0 text-center"
-                >
-                  {/* Khối thông số ở trên: Chữ trần không khung, đồng bộ tuyệt đối với 2 bên */}
-                  <div className="flex h-40 flex-col items-center justify-center">
-                    <p className="text-3xl font-black tabular-nums tracking-[-0.035em] text-white">
-                      {station.value}
-                    </p>
-                    <p className="mt-1 text-sm font-bold text-blue-200">{station.label}</p>
-                    <p className="mx-auto mt-2 max-w-[14rem] text-xs leading-5 text-slate-300">
-                      {station.detail}
-                    </p>
-                  </div>
-
-                  {/* Icon xe buýt nằm thẳng hàng ngang trên đường line kết nối */}
-                  <div className="relative z-10 mx-auto mt-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-950/30 ring-1 ring-blue-300/30">
-                    <Icon className="h-8 w-8" aria-hidden="true" />
-                  </div>
-
-                  {/* Hình ảnh xe đưa đón đặt ở đáy với chiều cao cân đối */}
-                  <figure className="group relative mt-4 h-40 overflow-hidden rounded-2xl bg-slate-800 shadow-md">
-                    <Image
-                      src={station.image}
-                      alt={station.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 30vw, 100vw"
-                      className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.025]"
-                    />
-                  </figure>
-                </div>
-              );
-            }
-
             return (
               <div
                 key={station.label}
