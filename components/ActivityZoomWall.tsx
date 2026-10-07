@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -206,34 +206,9 @@ const ROW_3_PHOTOS = [
 ];
 
 export function ActivityZoomWall() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [scrollShift, setScrollShift] = useState(0);
+
+
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
-
-  // Parallax scroll-linked velocity
-  useEffect(() => {
-    let rafId: number;
-    const handleScroll = () => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!sectionRef.current) return;
-        const rect = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        // Check if section is visible or nearby
-        if (rect.top < windowHeight && rect.bottom > 0) {
-          const progressFromCenter = (windowHeight / 2 - (rect.top + rect.height / 2)) * 0.45;
-          setScrollShift(progressFromCenter);
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
 
   // Modal navigation
   const activePhoto = activePhotoIndex !== null ? ALL_PHOTOS[activePhotoIndex] : null;
@@ -280,7 +255,7 @@ export function ActivityZoomWall() {
       <div
         key={uniqueKey}
         onClick={() => setActivePhotoIndex(originalIndex)}
-        className={`group relative flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90 shadow-lg transition-all duration-300 ease-out hover:z-20 hover:border-blue-400/80 hover:shadow-2xl hover:shadow-blue-500/20 ${
+        className={`group relative flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-900/90 md:shadow-lg transition-colors duration-300 ease-out hover:z-20 hover:border-blue-400/80 md:hover:shadow-2xl md:hover:shadow-blue-500/20 ${
           isFeatured
             ? 'h-[230px] w-[330px] sm:h-[270px] sm:w-[400px] md:h-[300px] md:w-[450px]'
             : 'h-[175px] w-[260px] sm:h-[200px] sm:w-[310px] md:h-[225px] md:w-[350px]'
@@ -290,6 +265,7 @@ export function ActivityZoomWall() {
           src={photo.src}
           alt={photo.title}
           fill
+          decoding="async"
           sizes={isFeatured ? '(min-width: 768px) 450px, 330px' : '(min-width: 768px) 350px, 260px'}
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
@@ -299,7 +275,7 @@ export function ActivityZoomWall() {
 
         {/* Top category badge */}
         <div className="absolute left-3.5 top-3.5 flex items-center gap-1.5">
-          <span className="rounded-full bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold text-blue-300 backdrop-blur-md ring-1 ring-white/10">
+          <span className="rounded-full bg-slate-950/80 px-2.5 py-1 text-[11px] font-bold text-blue-300 md:backdrop-blur-md ring-1 ring-white/10">
             {photo.categoryLabel}
           </span>
           {photo.isCenter && (
@@ -329,14 +305,14 @@ export function ActivityZoomWall() {
 
   return (
     <section
-      ref={sectionRef}
+
       id="hoat-dong-thuc-te"
       aria-labelledby="activity-stream-heading"
       className="relative overflow-hidden border-b border-slate-200 bg-slate-950 py-16 text-white sm:py-20 lg:py-24"
     >
       {/* Background ambient lighting effects */}
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-blue-600/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-40 right-1/4 h-96 w-96 rounded-full bg-emerald-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 left-1/4 hidden h-96 w-96 rounded-full bg-blue-600/15 blur-3xl md:block" />
+      <div className="pointer-events-none absolute -bottom-40 right-1/4 hidden h-96 w-96 rounded-full bg-emerald-600/10 blur-3xl md:block" />
 
       {/* Header Container */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -349,10 +325,10 @@ export function ActivityZoomWall() {
             id="activity-stream-heading"
             className="mt-4 text-balance text-3xl font-black tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl"
           >
-            Hành trình gắn kết & Bản sắc con người Tri Thức Việt
+            Những khoảnh khắc tại Tri Thức Việt
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-            Mỗi hình ảnh là một minh chứng sống động cho tinh thần kỷ luật, nhiệt huyết tuổi trẻ và sự gắn bó bền chặt giữa tập thể Tri Thức Việt, người lao động cùng các đối tác doanh nghiệp.
+            Album ảnh đội ngũ, hoạt động tập thể và những dịp vinh danh tại Tri Thức Việt.
           </p>
         </div>
       </div>
@@ -365,8 +341,7 @@ export function ActivityZoomWall() {
 
         {/* ROW 1: Flows Left */}
         <div
-          className="relative w-full overflow-hidden transition-transform duration-300 ease-out"
-          style={{ transform: `translateX(${-scrollShift * 0.4}px)` }}
+          className="relative w-full overflow-hidden"
         >
           <div
             className="flex w-max items-center gap-4 sm:gap-6 animate-marquee-left"
@@ -381,8 +356,7 @@ export function ActivityZoomWall() {
 
         {/* ROW 2: Flows Right (Hero / Featured Center Row) */}
         <div
-          className="relative w-full overflow-hidden transition-transform duration-300 ease-out"
-          style={{ transform: `translateX(${scrollShift * 0.55}px)` }}
+          className="relative w-full overflow-hidden"
         >
           <div
             className="flex w-max items-center gap-4 sm:gap-6 animate-marquee-right"
@@ -397,8 +371,7 @@ export function ActivityZoomWall() {
 
         {/* ROW 3: Flows Left */}
         <div
-          className="relative w-full overflow-hidden transition-transform duration-300 ease-out"
-          style={{ transform: `translateX(${-scrollShift * 0.35}px)` }}
+          className="relative w-full overflow-hidden"
         >
           <div
             className="flex w-max items-center gap-4 sm:gap-6 animate-marquee-left"
@@ -415,7 +388,8 @@ export function ActivityZoomWall() {
       {/* Interactive Helper Hint */}
       <div className="mx-auto mt-8 flex max-w-7xl items-center justify-center px-4 text-center text-xs text-slate-400 sm:mt-10">
         <span>
-          💡 Nhấp vào hình ảnh bất kỳ để xem chi tiết · Cuộn chuột lên/xuống để tăng tốc độ lướt
+          <span className="md:hidden">Chạm vào hình ảnh để xem chi tiết</span>
+          <span className="hidden md:inline">Nhấp vào hình ảnh bất kỳ để xem chi tiết</span>
         </span>
       </div>
 
@@ -530,3 +504,4 @@ export function ActivityZoomWall() {
     </section>
   );
 }
+

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Building2 } from 'lucide-react';
 import { ScrambleText } from '@/components/ScrambleText';
-import { HeroAnimatedStats } from './HeroAnimatedStats';
 
 export function Hero() {
   return (
@@ -10,23 +9,26 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-16 lg:px-8 lg:py-20">
         <div className="max-w-3xl">
           <h1 className="text-balance text-4xl font-black leading-[1.08] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
+            Kết nối việc làm<br />Tuyển dụng & cung ứng lao động
+          </h1>
+          <p className="mt-5 text-lg font-bold leading-8">
             <ScrambleText text="Kết nối đúng người" className="text-[#005b4a]" />
             <ScrambleText text="Đồng hành đúng nhu cầu" className="text-[#991b1b]" />
             <ScrambleText text="Phát triển bền vững" className="text-[#b77900]" />
-          </h1>
+          </p>
           <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
             Tri Thức Việt định hướng trở thành cầu nối giữa doanh nghiệp và người lao động, tập trung vào tuyển nhân viên, cung ứng nhân sự và thông tin rõ ràng trước mỗi quyết định.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/lien-he#lien-he-truc-tiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#065f46] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#047857] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#065f46]">
-              Trao đổi nhu cầu tuyển dụng <ArrowRight className="h-4 w-4" />
+            <Link href="/nguoi-lao-dong" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-orange-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">
+              Tôi cần tìm việc <ArrowRight className="h-4 w-4" />
             </Link>
             <Link href="/giai-phap-doanh-nghiep" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#991b1b]/35 px-5 py-3 text-sm font-bold text-[#991b1b] transition hover:border-[#991b1b] hover:bg-red-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#991b1b]">
-              Xem phương án phối hợp
+              Nhà máy cần tuyển người
             </Link>
           </div>
-          <Link href="/nguoi-lao-dong" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-orange-700 underline decoration-orange-300 underline-offset-4 hover:text-orange-800">
-            Tôi là người lao động, cần xem thông tin trước <ArrowRight className="h-4 w-4" />
+          <Link href="/lien-he#lien-he-truc-tiep" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-700 underline underline-offset-4 hover:text-blue-800">
+            Trao đổi trực tiếp với Tri Thức Việt <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
@@ -41,7 +43,6 @@ export function Hero() {
         </figure>
       </div>
 
-      <HeroAnimatedStats />
     </section>
   );
 }

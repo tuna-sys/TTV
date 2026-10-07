@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { legalEntity } from '@/data/siteData';
 
-export function HomeNeedsRouting() {
+export function HomeNeedsRouting({ section = 'all' }: { section?: 'all' | 'needs' | 'profile' }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopyTaxId = () => {
@@ -24,7 +24,7 @@ export function HomeNeedsRouting() {
 
   return (
     <>
-      {/* 1. Thông tin phù hợp với từng nhu cầu */}
+      {section !== 'profile' && <>
       <section id="nhu-cau" className="scroll-mt-36 border-b border-slate-200 bg-slate-50 py-20" aria-labelledby="routes-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
@@ -32,14 +32,68 @@ export function HomeNeedsRouting() {
               Lựa Chọn Định Hướng
             </span>
             <h2 id="routes-heading" className="text-2xl font-black tracking-[-0.03em] text-slate-950 sm:text-3xl lg:text-4xl">
-              Thông Tin Phù Hợp Với Từng Nhu Cầu
+              Tri Thức Việt cung cấp dịch vụ gì?
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600">
-              Chọn luồng thông tin phù hợp để tìm hiểu giải pháp tuyển dụng cho nhà máy hoặc đăng ký tìm việc an tâm.
+              Hai hướng phục vụ: hỗ trợ người lao động tìm việc tại nhà máy và hỗ trợ nhà máy tuyển dụng, bổ sung nguồn lao động.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card Người Lao Động */}
+            <Link
+              href="/nguoi-lao-dong"
+              className="group relative rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-orange-50 text-orange-700 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 shadow-sm">
+                  <Users className="h-7 w-7" />
+                  
+
+          </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-orange-700 block mb-1">
+                  Khối Người Tìm Việc
+                </span>
+                <h3 className="text-2xl font-black text-slate-950 group-hover:text-orange-700 transition-colors">
+                  Tư vấn & kết nối việc làm tại nhà máy
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  Xem điều kiện công việc, quy trình hồ sơ và thông tin hỗ trợ đi lại, chỗ ở trước khi liên hệ qua các kênh tuyển dụng chính thức.
+                </p>
+                <p className="mt-5 text-sm font-bold text-orange-800">Tri Thức Việt hỗ trợ bạn</p>
+                <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                  <li>Tư vấn, giới thiệu công việc theo nhu cầu và điều kiện tuyển dụng.</li>
+                  <li>Hướng dẫn hồ sơ, lịch phỏng vấn và quá trình nhận việc.</li>
+                  <li>Hỗ trợ thông tin đi lại, chỗ ở và duy trì đầu mối trao đổi sau nhận việc.</li>
+                </ul>
+                <p className="mt-5 text-sm font-bold text-slate-950">Quyền lợi khi tìm việc qua Tri Thức Việt</p>
+
+                {/* Worker highlights tags */}
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-700">
+                  <li>Được tư vấn công việc theo khu vực, ca làm và khả năng nhận việc.</li>
+                  <li>Làm rõ lương, phụ cấp, bảo hiểm và khoản khấu trừ trước khi quyết định.</li>
+                  <li>Được hướng dẫn hồ sơ, lịch phỏng vấn và các bước nhận việc.</li>
+                </ul>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
+                    100% Miễn phí người lao động
+                  </span>
+                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
+                    Không giữ giấy tờ tùy thân gốc
+                  </span>
+                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
+                    Hỗ trợ xe đưa đón & Ký túc xá
+                  </span>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-slate-600">Lương, phụ cấp, chi phí đi lại và chỗ ở áp dụng theo từng nhà máy, vị trí và chương trình; cần xác nhận cụ thể trước khi nhận việc.</p>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-2 text-sm font-bold text-orange-700 group-hover:text-orange-800">
+                <span>Xem thông tin dành cho người lao động</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
+              </div>
+            </Link>
+
             {/* Card Doanh Nghiệp */}
             <Link
               href="/giai-phap-doanh-nghiep"
@@ -53,13 +107,25 @@ export function HomeNeedsRouting() {
                   Khối B2B & FDI
                 </span>
                 <h3 className="text-2xl font-black text-slate-950 group-hover:text-blue-700 transition-colors">
-                  Dành Cho Doanh Nghiệp
+                  Tuyển dụng & cung ứng lao động cho nhà máy
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">
                   Tìm hiểu cách tiếp nhận nhu cầu, xây dựng phương án tuyển dụng, sàng lọc và phối hợp tiếp nhận lao động cho các nhà máy quy mô lớn.
                 </p>
+                <p className="mt-5 text-sm font-bold text-blue-800">Tri Thức Việt thực hiện</p>
+                <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                  <li>Tiếp nhận yêu cầu nhân sự và xây dựng kế hoạch tuyển dụng.</li>
+                  <li>Tìm nguồn ứng viên qua nhiều kênh, tư vấn và sàng lọc theo tiêu chuẩn nhà máy.</li>
+                  <li>Điều phối phỏng vấn, phối hợp tiếp nhận và theo dõi sau tuyển dụng.</li>
+                </ul>
+                <p className="mt-5 text-sm font-bold text-slate-950">Giá trị dành cho nhà máy</p>
 
                 {/* Service highlights tags */}
+                <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-700">
+                  <li>Giảm tải việc tìm nguồn, tiếp nhận và sàng lọc ứng viên.</li>
+                  <li>Thống nhất số lượng, tiêu chuẩn, ca làm và thời gian cần người trước khi phối hợp.</li>
+                  <li>Có đầu mối điều phối tiếp nhận và theo dõi phản hồi sau tuyển dụng.</li>
+                </ul>
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="px-3 py-1 rounded-lg bg-blue-50 text-blue-800 text-xs font-semibold">
                     Quy trình 6 bước chuẩn hóa
@@ -78,50 +144,13 @@ export function HomeNeedsRouting() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
               </div>
             </Link>
-
-            {/* Card Người Lao Động */}
-            <Link
-              href="/nguoi-lao-dong"
-              className="group relative rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm transition-all duration-300 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between"
-            >
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-orange-50 text-orange-700 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 shadow-sm">
-                  <Users className="h-7 w-7" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-orange-700 block mb-1">
-                  Khối Người Tìm Việc
-                </span>
-                <h3 className="text-2xl font-black text-slate-950 group-hover:text-orange-700 transition-colors">
-                  Dành Cho Người Lao Động
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                  Xem điều kiện công việc, quy trình hồ sơ và thông tin hỗ trợ đi lại, chỗ ở trước khi liên hệ qua các kênh tuyển dụng chính thức.
-                </p>
-
-                {/* Worker highlights tags */}
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
-                    100% Miễn phí người lao động
-                  </span>
-                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
-                    Không giữ giấy tờ tùy thân gốc
-                  </span>
-                  <span className="px-3 py-1 rounded-lg bg-orange-50 text-orange-800 text-xs font-semibold">
-                    Hỗ trợ xe đưa đón & Ký túc xá
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-2 text-sm font-bold text-orange-700 group-hover:text-orange-800">
-                <span>Xem thông tin dành cho người lao động</span>
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-2" />
-              </div>
-            </Link>
           </div>
         </div>
       </section>
+      </>}
 
       {/* 2. Hồ sơ doanh nghiệp có thể kiểm tra */}
+      {section !== 'needs' && <>
       <section id="ho-so" className="scroll-mt-36 bg-white py-20 border-b border-slate-200" aria-labelledby="profile-heading">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
           <div>
@@ -200,6 +229,7 @@ export function HomeNeedsRouting() {
           </div>
         </div>
       </section>
+      </>}
     </>
   );
 }

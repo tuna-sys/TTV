@@ -14,6 +14,7 @@ import { OperationalScaleAnimation } from '@/components/OperationalScaleAnimatio
 import { currentPartners, legalEntity, officialChannels, publicRecruitmentEvidence, siteConfig } from '@/data/siteData';
 import { absoluteUrl } from '@/lib/site-url';
 import { ScrambleText } from '@/components/ScrambleText';
+import { HomeSummaryVideo } from '@/components/HomeSummaryVideo';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu & hồ sơ năng lực | Tri Thức Việt',
@@ -68,6 +69,8 @@ export default function AboutPage() {
             </nav>
           </div>
         </section>
+
+        <HomeSummaryVideo summaryOnly />
 
         <section id="phap-nhan" className="scroll-mt-24 border-b border-slate-200 bg-white">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
